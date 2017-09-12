@@ -1,4 +1,4 @@
-# Huiswerk Java2
+# Programming Assignments module: Java2
 This repository contains the source code of my assignment solutions 
 for the module Java2.
 

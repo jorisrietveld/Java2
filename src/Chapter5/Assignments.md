@@ -29,11 +29,17 @@ Assignments for this week:
    
  - 5.4 **Is there a method in the String class that tests whether a string ends with a given suffix? 
        If so, what is it called and what are its parameters and return type?**
-   - Jep, ```java String.endsWith( surfix ) ```
+   - Jep, 
+   ```java 
+   String.endsWith( surfix ) 
+   ```
    
  - 5.5 **Is there a method in the String class that returns the number of characters in the string? 
        If so, what is it called and what are its parameters?**
-   - Jep, ```java String.length() ```
+   - Jep, 
+     ```java 
+     String.length() 
+     ```
    
  - 5.6 **If  you  found  methods  for  the  two  tasks  above,  how  did  you  find  them?  Is  it  
          easy or hard to find methods you are looking for? Why?**
