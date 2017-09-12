@@ -33,8 +33,11 @@ Assignments for this week:
    
  - 5.5 **Is there a method in the String class that returns the number of characters in the string? 
        If so, what is it called and what are its parameters?**
-   - Jep, String.length()
- - 5.6 Intellij auto complete and crtl+Q
+   - Jep, ```java String.length() ```
+   
+ - 5.6 **If  you  found  methods  for  the  two  tasks  above,  how  did  you  find  them?  Is  it  
+         easy or hard to find methods you are looking for? Why?**
+    - Intellij auto complete and crtl+Q
  - 5.7 Signature: public String trim()
      ```java
       String text = "  Some Text!  ";
