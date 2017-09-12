@@ -22,10 +22,10 @@ public class ResponderTest
     @Test
     public void generateUnOrderedListMarkDown()
     {
-        int chapter = 8;
-        int toNummer = 19;
+        int chapter = 5;
+        int toNummer = 73;
 
-        for (int fromNumber = 0; fromNumber < toNummer; fromNumber++) {
+        for (int fromNumber = 13; fromNumber < toNummer; fromNumber++) {
             System.out.printf(" - %d.%d\n", chapter, fromNumber);
         }
     }

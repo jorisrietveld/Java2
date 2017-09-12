@@ -7,9 +7,10 @@ Assignments for this week:
  - 5.73
   
 # Assignment solutions
- - 5.1 Done 
+ - **5.1 look around**
+   - Done 
  
- - 5.2 **Investigate the String documentation. Then look at the documentation for some other classes.**
+ - **5.2 Investigate the String documentation. Then look at the documentation for some other classes.**
    - **What is the structure of class documentation?**
      - The name of the class
      - An general explanation about the class.
@@ -22,42 +23,51 @@ Assignments for this week:
      - Documentation about the classes methods: overloads, return types and what arguments they take.
      - Documentation about the classes Constructors and destructors: an Description, overloads, and what arguments they take.
      
- - 5.3 **Look up the startsWith method in the documentation for String. There are two versions. Describe in your own 
- words what they do and the differences between them.**
+ - **5.3 Look up the startsWith method in the documentation for String. There are two versions. Describe in your own words what they do and the differences between them.**
    - Both take an string as first argument, the optional integer argument shifts the index from witch the 
    sequence gets matched.
    
- - 5.4 **Is there a method in the String class that tests whether a string ends with a given suffix? 
+ - **5.4 Is there a method in the String class that tests whether a string ends with a given suffix? 
        If so, what is it called and what are its parameters and return type?**
    - Jep, 
    ```java 
    String.endsWith( surfix ) 
    ```
    
- - 5.5 **Is there a method in the String class that returns the number of characters in the string? 
+ - **5.5 Is there a method in the String class that returns the number of characters in the string? 
        If so, what is it called and what are its parameters?**
    - Jep, 
      ```java 
      String.length() 
      ```
    
- - 5.6 **If  you  found  methods  for  the  two  tasks  above,  how  did  you  find  them?  Is  it  
-         easy or hard to find methods you are looking for? Why?**
+ - **5.6 If  you  found  methods  for  the  two  tasks  above,  how  did  you  find  them?  Is  it  easy or hard to find methods you are looking for? Why?**
     - Intellij auto complete and crtl+Q
- - 5.7 Signature: public String trim()
+ - **5.7 Find the trim method in the String class’s documentation. Write down the signature of that method. Write down an example call to that method on a String variable called text.**
+   - The signature of the trim method: public String trim()
      ```java
-      String text = "  Some Text!  ";
-      System.out.println( text.trim() );
+    String text = "  Some Text!  ";
+    System.out.println( text.trim() );
       ```
- - 5.8 Done see file [see file](main/SupportSystem.java), line 43
- - 5.9 Done see file [see file](main/SupportSystem.java), line 43
- - 5.10 `boolean`
- - 5.11 Done see file [see file](main/SupportSystem.java), line 45
- - 5.12 
+ - **5.8 Implement this improvement in your version of the tech-support1 project. Test it to confirm that it is tolerant of extra space around the word ‘bye’.** 
+   - Done see file [see file](main/SupportSystem.java), line 43
+ 
+ - **5.9 Improve the code of the SupportSystem class in the tech-support1 project so that case in the input is ignored. Use the String class’s toLowerCase method to do this. Remember that this method will not actually change the String it is called on, but result in the creation of a new one being created with slightly different contents.** 
+   - Done see file [see file](main/SupportSystem.java), line 43
+ 
+ - **5.10 Find the equals method in the documentation for class String . What is the return type of this method?**
+   - ```java
+     boolean
+     ```
+ 
+ - **5.11 Done see file [see file](main/SupportSystem.java), line 45
+ 
+ - **5.12 
    - Random is in package `java.util.Random`
    - It gets pseudo-random bytes.
    - Getting an random integer: ```java (new Random()).nextInt(); ```, Getting an long ```java (new Random()).nextLong();```
- - 5.13
+   
+ - **5.13
  - 5.14
  - 5.15
  - 5.16
