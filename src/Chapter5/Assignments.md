@@ -46,9 +46,9 @@ Assignments for this week:
  - **5.7 Find the trim method in the String class’s documentation. Write down the signature of that method. Write down an example call to that method on a String variable called text.**
    - The signature of the trim method: public String trim()
      ```java
-    String text = "  Some Text!  ";
-    System.out.println( text.trim() );
-      ```
+     String text = "  Some Text!  ";
+     System.out.println( text.trim() );
+     ```
  - **5.8 Implement this improvement in your version of the tech-support1 project. Test it to confirm that it is tolerant of extra space around the word ‘bye’.** 
    - Done see file [see file](main/SupportSystem.java), line 43
  
@@ -60,19 +60,62 @@ Assignments for this week:
      boolean
      ```
  
- - **5.11 Done see file [see file](main/SupportSystem.java), line 45
+ - **5.11 Change your implementation to use the equals method instead of startsWith .**
+   - Done see file [see file](main/SupportSystem.java), line 45
  
- - **5.12 
-   - Random is in package `java.util.Random`
+ - **5.12 Find the class Random in the Java class library documentation. Which pack- age is it in? What does it do? How do you construct an instance? How do you generate a random number? Note that you will probably not understand everything that is stated in the documentation. Just try to find out what you need to know.**
+   - Random is in package: `java.util.Random`
    - It gets pseudo-random bytes.
-   - Getting an random integer: ```java (new Random()).nextInt(); ```, Getting an long ```java (new Random()).nextLong();```
    
- - **5.13
- - 5.14
- - 5.15
+ - **5.13 Write a small code fragment (on paper) that generates a random integer number using this class.**
+   - Getting an random integer: 
+    ```java 
+    (new Random()).nextInt();
+    // Or
+    Random qbit = new Random();
+    random.nextLong();
+    ```
+    
+ - **5.14 Write some code (in BlueJ) to test the generation of random numbers. To do this, create a new class called RandomTester . You can create this class in the tech-support1 project, or you can create a new project for it—it doesn’t matter. In class RandomTester , implement two methods: printOneRandom (which prints out one random number) and printMultiRandom(int howMany) (which has a parameter to specify how many num- bers you want, and then prints out the appropriate number of random numbers).**  
+   ```java
+   public class nsa
+   {
+      Random onwillekeurig = new java.util.Random();
+   
+      public void printRand()
+      {
+           System.out.printf( "Pseudo-random number generated: %d", onwillekeurig.nextInt() );
+      }
+   }
+   ```
+   
+ - 5.15 Anny numbers between 0 up to and including 99
  - 5.16
+    ```java
+    public void randomTester()
+    {
+        return (new Random()).nextInt(6)+1;
+    }
+    ```
  - 5.17
+     ```java
+    public void getResponse()
+    {
+        int rNum = (new Random()).nextInt(3);
+        string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
+     
+    }
+     ```
  - 5.18
+```java
+public void getResponse()
+{
+    ArrayList rSeq = new ArrayList
+ int rNum = (new Random()).nextInt(3);
+ string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
+
+}
+```
  - 5.19
  - 5.20
  - 5.21
