@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -48,6 +49,7 @@ public class Responder
      */
     private void fillResponses()
     {
+
         responses.add("That sounds odd. Could you describe that problem in more detail?");
         responses.add("No other customer has ever complained about this before. \n" +
                       "What is your system configuration?");
