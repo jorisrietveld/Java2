@@ -113,7 +113,7 @@ Assignments for this week:
     }
     ```
  - 5.18 **Extend your getResponse method so that it uses an ArrayList to store an arbitrary number of responses and randomly returns one of them.**
-```java
+    ```java
     public void getResponse()
     {
         ArrayList response = new ArrayList<>() {{
@@ -126,7 +126,7 @@ Assignments for this week:
     }
     ```
  - 5.19 **Add a method to your RandomTester class that takes a parameter max and generates a random number in the range 1 to max (inclusive).**
-```java
+    ```java
     public void getResponse()
     {
         ArrayList response = new ArrayList<>() {{
@@ -139,15 +139,15 @@ Assignments for this week:
     }
     ```
  - 5.20 **Add a method to your RandomTester class that takes two parameters, min and max , and generates a random number in the range min to max (inclusive). Rewrite the body of the method you wrote for the previous exercise so that it now calls this new method to generate its result. Note that it should not be necessary to use a loop in this method.**
-```java
-public int getRandomNumber( int min, int max )
-{
-    Random rand = new Random();
-    return ( rand.nextInt( max-min ) + min )
-}
-```
+    ```java
+    public int getRandomNumber( int min, int max )
+    {
+        Random rand = new Random();
+        return ( rand.nextInt( max-min ) + min )
+    }
+    ```
  - 5.21 **Implement in your version of the tech-support system the random-response solution discussed here.**
-   - Done see file [see file](main/SupportSystem.java), line 45
+   - Done see file [see file](main/SupportSystem.java)
 
  - 5.22 **What happens when you add more (or fewer) possible responses to the responses list? Will the selection of a random response still work properly? Why or why not?**
    - Doesn't matter because the random generator gets the size of the array list.
@@ -159,26 +159,25 @@ public int getRandomNumber( int min, int max )
    Anny object, Yep that is possible.
    
  - 5.25 **How do you check how many entries are contained in a map?**
- ```java
- Map<String, Integer> someMap = new Map<>();
- someMap.size();    
- ```
- 
- - 5.26 **Create a class MapTester (either in your current project or in a new project). In it, use a HashMap to implement a phone book similar to the one in the example above. (Remember that you must import java.util.HashMap .)**
-        **In this class, implement two methods:**
+     ```java
+     Map<String, Integer> someMap = new Map<>();
+     someMap.size();    
+     ```
+     
+ - 5.26 **Create a class MapTester (either in your current project or in a new project).In it, use a HashMap to implement a phone book similar to the one in the example above. (Remember that you must import java.util.HashMap .) In this class, implement two methods:**
         ```java 
         public void enterNumber(String name, String number);
         public String lookupNumber(String name);
         ```
         ***The methods should use the put and get methods of the HashMap class to implement their functionality.**
- ```java
- 
- ```
+        - Done see file [see file](main/PhoneBook.java)
+
  
  - 5.27 **What happens when you add an entry to a map with a key that already ex- ists in the map?**
  ```java
      
  ```
+ 
  - 5.28 **What happens when you add an entry to a map with two different keys?**
  ```java
      
