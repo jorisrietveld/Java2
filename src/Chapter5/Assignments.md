@@ -169,8 +169,7 @@ Assignments for this week:
         public void enterNumber(String name, String number);
         public String lookupNumber(String name);
         ```
-        ***The methods should use the put and get methods of the HashMap class to implement their functionality.**
-        - Done see file [see file](main/PhoneBook.java)
+    - Done see file [see file](main/PhoneBook.java)
 
  
  - 5.27 **What happens when you add an entry to a map with a key that already ex- ists in the map?**
