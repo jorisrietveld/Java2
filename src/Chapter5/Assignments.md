@@ -89,34 +89,44 @@ Assignments for this week:
    }
    ```
    
- - 5.15 Anny numbers between 0 up to and including 99
- - 5.16
-    ```java
-    public void randomTester()
-    {
-        return (new Random()).nextInt(6)+1;
-    }
-    ```
- - 5.17
+ - 5.15 **Anny numbers between 0 up to and including 99**
      ```java
+     public void randomTester()
+     {
+         return (new Random()).nextInt(6)+1;
+     }
+     ```
+ - 5.16 **Write a method in your RandomTester class called throwDice that re- turns a random number between 1 and 6 (inclusive).**
+     ```java
+     public void getResponse()
+     {
+         int rNum = (new Random()).nextInt(3);
+         string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
+     }
+     ```
+ - 5.17 **Write a method called getResponse that randomly returns one of the strings "yes" , "no" , or "maybe" .**
+    ```java
     public void getResponse()
     {
         int rNum = (new Random()).nextInt(3);
         string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
-     
     }
-     ```
- - 5.18
+    ```
+ - 5.18 **Extend your getResponse method so that it uses an ArrayList to store an arbitrary number of responses and randomly returns one of them.**
 ```java
-public void getResponse()
-{
-    ArrayList rSeq = new ArrayList
- int rNum = (new Random()).nextInt(3);
- string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
-
-}
-```
+    public void getResponse()
+    {
+        ArrayList response = new ArrayList<>() {{
+            add("Some response");
+            add("Some other response");
+            add("Tunderdome 25 Years of hardcore!!!"); 
+        }}
+        int rNum = (new Random()).nextInt(3);
+        string response = response.get( nNumb );
+    }
+    ```
  - 5.19
+
  - 5.20
  - 5.21
  - 5.22
