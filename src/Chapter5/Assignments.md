@@ -89,7 +89,7 @@ Assignments for this week:
    }
    ```
    
- - 5.15 **Anny numbers between 0 up to and including 99**
+ - 5.15 **Find the nextInt method in class Random that allows the target range of random numbers to be specified. What are the possible random numbers that are generated when you call this method with 100 as its parameter?**
      ```java
      public void randomTester()
      {
@@ -125,55 +125,149 @@ Assignments for this week:
         string response = response.get( nNumb );
     }
     ```
- - 5.19
+ - 5.19 **Add a method to your RandomTester class that takes a parameter max and generates a random number in the range 1 to max (inclusive).**
+```java
+    public void getResponse()
+    {
+        ArrayList response = new ArrayList<>() {{
+            add("Some response");
+            add("Some other response");
+            add("Tunderdome 25 Years of hardcore!!!"); 
+        }}
+        int rNum = (new Random()).nextInt(3);
+        string response = response.get( nNumb );
+    }
+    ```
+ - 5.20 **Add a method to your RandomTester class that takes two parameters, min and max , and generates a random number in the range min to max (inclusive). Rewrite the body of the method you wrote for the previous exercise so that it now calls this new method to generate its result. Note that it should not be necessary to use a loop in this method.**
+```java
+    
+```
+ - 5.21 **Implement in your version of the tech-support system the random-response solution discussed here.**
+```java
+    
+```
 
- - 5.20
- - 5.21
- - 5.22
- - 5.23
- - 5.24
- - 5.25
- - 5.26
- - 5.27
- - 5.28
- - 5.29
- - 5.30
- - 5.31
- - 5.32
- - 5.33
- - 5.34
- - 5.35
- - 5.36
- - 5.37
- - 5.38
- - 5.39
- - 5.41
- - 5.42
- - 5.43
- - 5.46
- - 5.47
- - 5.48
- - 5.49
- - 5.50
- - 5.51
- - 5.52
- - 5.53
- - 5.54
- - 5.55
- - 5.56
- - 5.57
- - 5.58
- - 5.59
- - 5.60
- - 5.61
- - 5.62
- - 5.63
- - 5.64
- - 5.65
- - 5.66
- - 5.67
- - 5.68
- - 5.69
- - 5.70
- - 5.72
- - 5.73
+ - 5.22 **What happens when you add more (or fewer) possible responses to the responses list? Will the selection of a random response still work properly? Why or why not?**
+```java
+    
+```
+
+ - 5.23 **What is a HashMap ? What is its purpose and how do you use it? Answer these questions in writing, and use the Java library documentation of Map and HashMap for your responses. Note that you will find it hard to understand everything, as the documentation for these classes is not very good. We will discuss the details later in this chapter, but see what you can find out on your own before reading on.**
+ ```java
+     
+ ```
+ 
+ - 5.24 **What is a HashMap ? What is its purpose and how do you use it? Answer these questions in writing, and use the Java library documentation of Map and HashMap for your responses. Note that you will find it hard to understand everything, as the documentation for these classes is not very good. We will discuss the details later in this chapter, but see what you can find out on your own before reading on.**
+ ```java
+     
+ ```
+ 
+ - 5.25 **How do you check how many entries are contained in a map?**
+ ```java
+     
+ ```
+ 
+ - 5.26 **Create a class MapTester (either in your current project or in a new project). In it, use a HashMap to implement a phone book similar to the one in the example above. (Remember that you must import java.util.HashMap .) In this class, implement two methods: public void enterNumber(String name, String number) and public String lookupNumber(String name) The methods should use the put and get methods of the HashMap class to implement their functionality.**
+ ```java
+     
+ ```
+ - 5.27 **What happens when you add an entry to a map with a key that already ex- ists in the map?**
+ ```java
+     
+ ```
+ - 5.28 **What happens when you add an entry to a map with two different keys?**
+ ```java
+     
+ ```
+ - 5.29 **How do you check whether a given key is contained in a map? (Give a Java code example.)**
+ ```java
+     
+ ```
+ - 5.30 **What happens when you try to look up a value and the key does not exist in the map?**
+ ```java
+     
+ ```
+ 
+ - 5.31 **How do you check how many entries are contained in a map?**
+ ```java
+     
+ ```
+ 
+ - 5.32 **How do you print out all keys currently stored in a map?**
+ 
+ - 5.33 **Implement the changes discussed here in your own version of the TechSupport system. Test it to get a feel for how well it works.**
+ 
+ - 5.34 **What are the similarities and differences between a HashSet and an ArrayList ? Use the descriptions of Set , HashSet , List , and ArrayList in the library documentation to find out, because HashSet is a special case of a Set and ArrayList is a special case of a List .**
+ 
+ - 5.35 **The split method is more powerful than it first seems from our example. How can you define exactly how a string should be split? Give some examples.**
+ 
+ - 5.36 **How would you call the split method if you wanted to split a string at either space or tab characters? How might you break up a string in which the words are sepa- rated by colon characters (:)?**
+ 
+ - 5.37 **What is the difference in the result of returning the words in a HashSet compared with returning them in an ArrayList ?**
+ 
+ - 5.38 **What happens if there is more than one space between two words (e.g., two or three spaces)? Is there a problem?**
+  
+ - 5.42 **Implement the final changes discussed above in your own version of the program**
+ 
+ - 5.41 **Add more word/response mappings into your application. You could copy some out of the solutions provided and add some yourself.**
+ 
+ - 5.42 **Ensure that the same default response is never repeated twice in a row.**
+ 
+ - 5.43 **Sometimes two words (or variations of a word) are mapped to the same response. Deal with this by mapping synonyms or related expressions to the same string so that you do not need multiple entries in the response map for the same response.**
+ 
+ - 5.46 **Use BlueJ’s Project Documentation function to generate documentation for your TechSupport project. Examine it. Is it accurate? Is it complete? Which parts are useful? Which are not? Do you find any errors in the documentation?**
+ 
+ - 5.47 **Find examples of javadoc key symbols in the source code of the TechSupport project. How do they influence the formatting of the documentation?**
+ 
+ - 5.48 **Find out about and describe other javadoc key symbols. One place where you can look is the online documentation of Oracle’s Java distribution. It contains a document called javadoc – The Java API Documentation Generator (for example, at http:// download.oracle.com/javase/6/docs/technotes/tools/windows/javadoc. html). In this document, the key symbols are called javadoc tags .**
+ 
+ - 5.49 **Properly document all classes in your version of the TechSupport project**
+ 
+ - 5.50 **Create a DrawDemo object and experiment with its various methods. Read the DrawDemo source code and describe (in writing) how each method works.**
+ 
+ - 5.51 **Create a Pen object interactively using its default constructor (the construc- tor without parameters). Experiment with its methods. While you do this, make sure to have a window open showing you the documentation of the Pen class (either the editor window in Documentation view or a web-browser window showing the project documentation). Refer to the documentation to be certain what each method does.**
+ 
+ - 5.52 **Interactively create an instance of class Canvas and try some of its meth- ods. Again, refer to the class’s documentation while you do this.**
+ 
+ - 5.53 **Find some uses of the color constants in the code of class DrawDemo .**
+ 
+ - 5.54 **Write down four more color constants that are available in the Color class. Refer to the class’s documentation to find out what they are.**
+ 
+ - 5.55 **Create a canvas. Using the canvas’s methods interactively, draw a red circle near the center of the canvas. Now draw a yellow rectangle.**
+ 
+ - 5.56 **How do you clear the whole canvas?**
+ 
+ - 5.57 **In class DrawDemo , create a new method named drawTriangle . This method should create a pen (as in the drawSquare method) and then draw a green triangle.**
+ 
+ - 5.58 **Write a method drawPentagon that draws a pentagon.**
+ 
+ - 5.59 **Write a method drawPolygon(int n) that draws a regular polygon with n sides (thus, n=3 draws a triangle, n=4 draws a square, etc.).**
+ 
+ - 5.60 **Write a method called spiral that draws a spiral (see Figure 5.6).**
+ 
+ - 5.61 **Add a method to your DrawDemo class that produces a picture on the can- vas directly (without using a pen object). The picture can show anything you like, but should at least include some shapes, different colors, and text. Use code completion in the process of entering your code.**
+ 
+ - 5.62 **Change the method bounce in class BallDemo to let the user choose how many balls should be bouncing.**
+ 
+ - 5.63 **Which type of collection ( ArrayList , HashMap , or HashSet ) is most suita- ble for storing the balls for the new bounce method? Discuss in writing, and justify your choice.**
+ 
+ - 5.64 **Change the bounce method to place the balls randomly anywhere in the top half of the screen.**
+ 
+ - 5.65 **Write a new method named boxBounce . This method draws a rectan- gle (the “box”) on screen and one or more balls inside the box. For the balls, do not use BouncingBall , but create a new class BoxBall that moves around inside the box, bounc- ing off the walls of the box so that the ball always stays inside. The initial position and speed of the ball should be random. The boxBounce method should have a parameter that specifies how many balls are in the box.**
+ 
+ - 5.66 **Give the balls in boxBounce random colors**
+ 
+ - 5.67 **In class BouncingBall , you will find a definition of gravity (a simple inte- ger). Increase or decrease the gravity value; compile and run the bouncing ball demo again. Do you observe a change**
+ 
+ - 5.68 **Write constant declarations for the following:** 
+   - **A public variable that is used to measure tolerance, with the value 0.001.**
+   - **A private variable that is used to indicate a pass mark, with the integer value of 40.**
+   - **A public character variable that is used to indicate that the help command is 'h' .**
+ 
+ - 5.69 **Take a look at the LogEntry class in the weblog-analyzer project from Chapter 4. How have constants been used in that class? Do you think that this is a good use of constants?**
+ 
+ - 5.70 **Suppose that a change to the weblog-analyzer project meant that it was no longer necessary to store year values in the dataValues array in the LogEntry class. How much of the class would need to be altered if the month value were now to be stored at index 0 , the day value at index 1 , and so on? Do you see how the use of named constants for spe- cial values simplifies this sort of process?**
+ 
+ - 5.72 **There is a rumor circulating on the Internet that George Lucas (the creator of the Star Wars movies) uses a formula to create the names for the characters in his stories (Jar Jar Binks, ObiWan Kenobi, etc.). The formula—allegedly—is this: Your Star Wars first name: 1 Take the first three letters of your last name. 2 Add to that the first two letters of your first name. Your Star Wars last name: 1 Take the first two letters of your mother’s maiden name. 2 Add to this the first three letters of the name of the town or city where you were born. And now your task: Create a new BlueJ project named star-wars . In it create a class named NameGenerator . This class should have a method named generateStarWarsName that generates a Star Wars name, following the method described above. You will need to find out about a method of the String class that generates a substring.**
+ 
+ - 5.73 **Assume that we want to swap the values of two integer variables, a and b. To do this, we write a method public void swap(int i1, int i2) { int tmp = i1; i1 = i2; i2 = tmp; } Then we call this method with our a and b variables: swap(a, b); Are a and b swapped after this call? If you test it, you will notice that they are not! Why does this not work? Explain in detail.**
