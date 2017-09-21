@@ -165,43 +165,41 @@ Assignments for this week:
      ```
      
  - 5.26 **Create a class MapTester (either in your current project or in a new project).In it, use a HashMap to implement a phone book similar to the one in the example above. (Remember that you must import java.util.HashMap .) In this class, implement two methods:**
-        ```java 
-        public void enterNumber(String name, String number);
-        public String lookupNumber(String name);
-        ```
+    ```java 
+    public void enterNumber(String name, String number);
+    public String lookupNumber(String name);
+    ```
     - Done see file [see file](main/PhoneBook.java)
 
  
  - 5.27 **What happens when you add an entry to a map with a key that already ex- ists in the map?**
- ```java
-     
- ```
+   - It will override the current value.
  
  - 5.28 **What happens when you add an entry to a map with two different keys?**
- ```java
-     
- ```
+   - You get 2 reference's.
+   
  - 5.29 **How do you check whether a given key is contained in a map? (Give a Java code example.)**
- ```java
-     
- ```
+     ```java
+    HashMap<String, String> someMap = new HashMap<>();
+    someMap.containsKey("someKey");
+     ```
  - 5.30 **What happens when you try to look up a value and the key does not exist in the map?**
- ```java
-     
- ```
+    You get `null` back. You could use `getOrDefault( key, defaultReturnValue )` if you want something different.
  
  - 5.31 **How do you check how many entries are contained in a map?**
- ```java
-     
- ```
+     ```java
+    HashMap<String, String> someMap = new HashMap<>();
+    someMap.size();
+     ```
  
  - 5.32 **How do you print out all keys currently stored in a map?**
-  ```java
-      
-  ```
+    ```java
+    HashMap<String, String> someMap = new HashMap<>();
+    someMap.keySet().forEach( System.out::println );
+    ```
   
  - 5.33 **Implement the changes discussed here in your own version of the TechSupport system. Test it to get a feel for how well it works.**
- 
+   - Done see file [see file](main/SupportSystem.java)
  - 5.34 **What are the similarities and differences between a HashSet and an ArrayList ? Use the descriptions of Set , HashSet , List , and ArrayList in the library documentation to find out, because HashSet is a special case of a Set and ArrayList is a special case of a List .**
  
  - 5.35 **The split method is more powerful than it first seems from our example. How can you define exactly how a string should be split? Give some examples.**
