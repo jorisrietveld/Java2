@@ -12,6 +12,9 @@ import java.util.Scanner;
  */
 public class InputReader
 {
+    /**
+     * The scanner used to receive the users question.
+     */
     private Scanner reader;
 
     /**

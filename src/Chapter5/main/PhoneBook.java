@@ -12,6 +12,11 @@ public class PhoneBook
 
     public PhoneBook( HashMap<String, String> initiate )
     {
+        String richardStallmanQuote = "I'm not glad he is dead, I'm glad he is gone.";
+        // Split on every alpha numeric character.
+        richardStallmanQuote.split("^[a-zA-Z0-9]");
+        // On spaces, the character not where rockets go.
+        richardStallmanQuote.split(" ");
 
     }
 

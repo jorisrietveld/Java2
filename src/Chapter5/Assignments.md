@@ -200,34 +200,66 @@ Assignments for this week:
   
  - 5.33 **Implement the changes discussed here in your own version of the TechSupport system. Test it to get a feel for how well it works.**
    - Done see file [see file](main/SupportSystem.java)
+   
  - 5.34 **What are the similarities and differences between a HashSet and an ArrayList ? Use the descriptions of Set , HashSet , List , and ArrayList in the library documentation to find out, because HashSet is a special case of a Set and ArrayList is a special case of a List .**
- 
+   - An `List` is an ordered collection.
+   - An `Set` is an collection with unique key => value pairs, it can be ordered based on its implementation.
+   - An `HashSet` is an unordered collection that cannot be accessed by index but by an custom key value.
+   - An `ArrayList` is an Ordered collection that can be accessed by index.
+   
  - 5.35 **The split method is more powerful than it first seems from our example. How can you define exactly how a string should be split? Give some examples.**
- 
- - 5.36 **How would you call the split method if you wanted to split a string at either space or tab characters? How might you break up a string in which the words are sepa- rated by colon characters (:)?**
- 
+    With `regular expressions` :sad:
+    ```java
+    String richardStallmanQuote = "I'm not glad he is dead, I'm glad he is gone.";
+    // Split on every alpha numeric character.
+    richardStallmanQuote.split("[a-zA-Z0-9]");
+    // On spaces, the character not where rockets go.
+    richardStallmanQuote.split("[/t]");
+    ``` 
+    
+ - 5.36 **How would you call the split method if you wanted to split a string at either space or tab characters? How might you break up a string in which the words are separated by colon characters (:)?**
+  ```java
+     String richardStallmanQuote = "I'm not glad he is dead, I'm glad he is gone.";
+     // Split on sapce and tab.
+     richardStallmanQuote.split("[/t]+");
+     // On spaces, the character not where rockets go.
+     richardStallmanQuote.split("[:]");
+   ``` 
  - 5.37 **What is the difference in the result of returning the words in a HashSet compared with returning them in an ArrayList ?**
- 
+   - In the hash set you gan receive values by the hash (user defined key) and with an array list you receive them by index.
+   
  - 5.38 **What happens if there is more than one space between two words (e.g., two or three spaces)? Is there a problem?**
+  - You get an empty string in the set.
   
  - 5.42 **Implement the final changes discussed above in your own version of the program**
+   - Done 
  
  - 5.41 **Add more word/response mappings into your application. You could copy some out of the solutions provided and add some yourself.**
+   -  Done
  
  - 5.42 **Ensure that the same default response is never repeated twice in a row.**
+   - Done
  
  - 5.43 **Sometimes two words (or variations of a word) are mapped to the same response. Deal with this by mapping synonyms or related expressions to the same string so that you do not need multiple entries in the response map for the same response.**
+   - Done
  
  - 5.46 **Use BlueJ’s Project Documentation function to generate documentation for your TechSupport project. Examine it. Is it accurate? Is it complete? Which parts are useful? Which are not? Do you find any errors in the documentation?**
+   - Done 
  
  - 5.47 **Find examples of javadoc key symbols in the source code of the TechSupport project. How do they influence the formatting of the documentation?**
+   - They have a different color ith itelij IDEA
  
  - 5.48 **Find out about and describe other javadoc key symbols. One place where you can look is the online documentation of Oracle’s Java distribution. It contains a document called javadoc – The Java API Documentation Generator (for example, at http:// download.oracle.com/javase/6/docs/technotes/tools/windows/javadoc. html). In this document, the key symbols are called javadoc tags .**
- 
+   - `@param` Defines an argument of an method. Or aan class attribute.
+   - `@returns` Defines an return type of an method.
+   - `@throws` Defines the exceptions an method can throw.
+   
  - 5.49 **Properly document all classes in your version of the TechSupport project**
+   - Done
  
  - 5.50 **Create a DrawDemo object and experiment with its various methods. Read the DrawDemo source code and describe (in writing) how each method works.**
- 
+   -  
+   
  - 5.51 **Create a Pen object interactively using its default constructor (the construc- tor without parameters). Experiment with its methods. While you do this, make sure to have a window open showing you the documentation of the Pen class (either the editor window in Documentation view or a web-browser window showing the project documentation). Refer to the documentation to be certain what each method does.**
  
  - 5.52 **Interactively create an instance of class Canvas and try some of its meth- ods. Again, refer to the class’s documentation while you do this.**
