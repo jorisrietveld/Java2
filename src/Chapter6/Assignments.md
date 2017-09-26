@@ -71,16 +71,82 @@ Assignments for this week:
     ```
    - Done see [ZuulBad :: Game.java ](ZuulBad/Game.java) and [ZuulBad :: Room.java ](ZuulBad/Room.java) 
 
- - 6.8
- - 6.9
- - 6.10
- - 6.11
- - 6.12
- - 6.13
- - 6.14
- - 6.16
- - 6.17
- - 6.18
+ - **Exercise 6.8 Implement the changes described in this section in your own zuul project.**
+   - Done see [ZuulBad :: Room.java ](ZuulBad/Room.java)
+
+ - **Exercise 6.9 Look up the keySet method in the documentation of HashMap. What does it do?**
+   - You get an Set containing the key values.
+ 
+ - **Exercise 6.10 Explain, in detail and in writing, how the getExitString method shown in
+     Code 6.7 works.**
+   - I done it differently with an stream:
+   ```java
+   public String getExitString()
+   {
+       return "Exits:" + exits.keySet()
+               .stream()
+               .map( str -> str )
+               .collect(Collectors.joining( " " ));
+   }
+   ```
+ - **Exercise 6.11 Implement the changes described in this section in your own zuul project.**
+   - Done see [ZuulBad :: Room.java ](ZuulBad/Room.java)
+   
+ - **Exercise 6.12 Draw an object diagram with all objects in your game, the way they are just
+     after starting the game**
+   - Not done
+   
+ - **Exercise 6.13 How does the object diagram change when you execute a go command?**
+   - Dont know.
+   
+ - **Exercise 6.14 Add the look command to your version of the zuul game.**
+   - Done see [ZuulBad :: Game.java ](ZuulBad/Game.java)
+   
+ - **Exercise 6.15 Add another command to your game. For a start, you could choose some-
+     thing simple, such as a command eat that, when executed, just prints out “You have eaten
+     now and you are not hungry any more.” Later, we can improve this so that you really get hun-
+     gry over time and you need to find food.**
+     - Done see [ZuulBad :: Game.java ](ZuulBad/Game.java) I created the kill command:
+     ```java
+     private void killCommand()
+     {
+         System.out.println("We are killing the JVM!");
+         while(true)
+         {
+             // How manny treads will it take?
+             Thread thread = new Thread(new Runnable(){
+                 @Override
+                 public void run() {
+                     while(true) {
+                         killCommand();
+                     }
+                 }
+             });
+             thread.start();
+         }
+     }
+     ```
+ - **Exercise 6.16 Implement the improved version of printing out the command words, as
+     described in this section.**
+   -  Done see [ZuulBad :: CommandWords.java ](CommandWords/Game.java)
+      ```java
+      public void showALl()
+      {
+          Arrays.stream(validCommands).forEach( System.out::println );
+      }
+      ```
+ - **Exercise 6.17 If you now add another new command, do you still need to change the Game
+     class? Why?**
+   - Nope, the classes responsibilities are separated. 
+ - **Exercise 6.18 Implement the suggested change. Make sure that your program still works
+     as before.**
+   -  Done see [ZuulBad :: CommandWords.java ](CommandWords/Game.java)
+         ```java
+         public String getCommandList()
+         {
+             return Arrays.stream(validCommands).collect(Collectors.joining(" "));
+         }
+         ```
  - 6.20
  - 6.21
  - 6.22

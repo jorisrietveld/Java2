@@ -44,15 +44,20 @@ public class Game
         myBed = new Room("in the campus pub");
         outsideMyWindow = new Room("in a computing lab");
         theStairs = new Room("in the computing admin office");
-        
+
         // initialise room exits
-        myDeskChair.setExits(null, myBed, theStairs, myDesk, null, null );
-        myDesk.setExits(null, myDeskChair, null, outsideMyWindow, null, null);
-        myBed.setExits(null, null, theStairs, myDeskChair, null, null);
-        outsideMyWindow.setExits(null, null, null, null, null, null);
-        theStairs.setExits(null, null, null, null,null,null);
+        myDeskChair.setExits(null, myBed, theStairs, myDesk);
+        myDesk.setExits(null, myDeskChair, null, outsideMyWindow);
+        myBed.setExits(null, null, theStairs, myDeskChair);
+        outsideMyWindow.setExits(null, null, null, null);
+        theStairs.setExits(null, null, null, null);
 
         currentRoom = myDeskChair;  // start game outside
+    }
+
+    private void look()
+    {
+        System.out.println(currentRoom.getDescription());
     }
 
     /**
@@ -127,7 +132,24 @@ public class Game
         System.out.println("around at the university.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+    }
+
+    private void killCommand()
+    {
+        System.out.println("We are killing the JVM!");
+        while(true)
+        {
+            // How manny treads will it take?
+            Thread thread = new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    while(true) {
+                        killCommand();
+                    }
+                }
+            });
+            thread.start();
+        }
     }
 
     /** 
@@ -145,29 +167,14 @@ public class Game
         String direction = command.getSecondWord();
 
         // Try to leave current room.
-        Room nextRoom = null;
-        if(direction.equals("north")) {
-            nextRoom = currentRoom.northExit;
-        }
-        if(direction.equals("east")) {
-            nextRoom = currentRoom.eastExit;
-        }
-        if(direction.equals("south")) {
-            nextRoom = currentRoom.southExit;
-        }
-        if(direction.equals("west")) {
-            nextRoom = currentRoom.westExit;
-        }
+        Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("You are " + currentRoom.getDescription());
-            System.out.print("Exits: ");
-            printLocationInfo();
-            System.out.println();
+            System.out.println(currentRoom.getDescription());
         }
     }
 

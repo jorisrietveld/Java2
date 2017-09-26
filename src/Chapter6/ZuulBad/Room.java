@@ -1,5 +1,9 @@
 package ZuulBad;
 
+import java.util.HashMap;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 /**
  * Class Room - a room in an adventure game.
  *
@@ -17,12 +21,7 @@ package ZuulBad;
 public class Room
 {
     private String description;
-    private Room northExit;
-    private Room southExit;
-    private Room eastExit;
-    private Room westExit;
-    private Room upExit;
-    private Room downExit;
+    private HashMap<String, Room> exits;        // stores exits of this room.
 
     /**
      * Create a room described "description". Initially, it has
@@ -30,9 +29,10 @@ public class Room
      * "an open court yard".
      * @param description The room's description.
      */
-    public Room(String description) 
+    public Room(String description)
     {
         this.description = description;
+        exits = new HashMap<String, Room>();
     }
 
     /**
@@ -43,22 +43,18 @@ public class Room
      * @param south The south exit.
      * @param west The west exit.
      */
-    public void setExits(Room north, Room east, Room south, Room west, Room up, Room down) 
+    public void setExits(Room north, Room east, Room south,
+                         Room west)
     {
         if(north != null)
-            northExit = north;
+            exits.put("north", north);
         if(east != null)
-            eastExit = east;
+            exits.put("east", east);
         if(south != null)
-            southExit = south;
+            exits.put("south", south);
         if(west != null)
-            westExit = west;
-        if(up != null)
-            upExit = up;
-        if(down != null)
-            downExit = down;
+            exits.put("west", west);
     }
-
     /**
      * gets the exits of an room.
      * @param direction
@@ -66,40 +62,17 @@ public class Room
      */
     public Room getExit(String direction)
     {
-        if(direction.equals("north")) {
-            return northExit;
-        }
-        if(direction.equals("east")) {
-            return eastExit;
-        }
-        if(direction.equals("south")) {
-            return southExit;
-        }
-        if(direction.equals("west")) {
-            return westExit;
-        }
-        return null;
+        return exits.get(direction);
     }
 
     /**
      *  Prints location info.
      */
-    public void getExitString()
+    public String getExitString()
     {
-        System.out.print("Exits: ");
-        if( this.getExit("north") != null) {
-            System.out.print("north ");
-        }
-        if(this.getExit("east") != null) {
-            System.out.print("east ");
-        }
-        if(this.getExit("south") != null) {
-            System.out.print("south ");
-        }
-        if(this.getExit("west") != null) {
-            System.out.print("west ");
-        }
-        System.out.println();
+        return "Exits:" + exits.keySet().stream()
+                .map( str -> str )
+                .collect(Collectors.joining( " " ));
     }
 
     /**
