@@ -128,7 +128,7 @@ Assignments for this week:
      ```
  - **Exercise 6.16 Implement the improved version of printing out the command words, as
      described in this section.**
-   -  Done see [ZuulBad :: CommandWords.java ](CommandWords/Game.java)
+   -  Done see [ZuulBad :: CommandWords.java ](ZuulBad/CommandWords.java)
       ```java
       public void showALl()
       {
@@ -140,22 +140,68 @@ Assignments for this week:
    - Nope, the classes responsibilities are separated. 
  - **Exercise 6.18 Implement the suggested change. Make sure that your program still works
      as before.**
-   -  Done see [ZuulBad :: CommandWords.java ](CommandWords/Game.java)
+   -  Done see [ZuulBad :: CommandWords.java ](ZuulBad/CommandWords.java)
          ```java
          public String getCommandList()
          {
              return Arrays.stream(validCommands).collect(Collectors.joining(" "));
          }
          ```
- - 6.20
- - 6.21
- - 6.22
- - 6.23
- - 6.24
- - 6.25
- - 6.28
- - 6.29
- - 6.30
- - 6.31
- - 6.32
- - 6.33
+ - **Exercise 6.19 Find out what the model-view-controller pattern is. You can do a web search
+     to get information, or you can use any other sources you find. How is it related to the topic
+     discussed here? What does it suggest? How could it be applied to this project? (Only discuss
+     its application to this project, as an actual implementation would be an advanced-challenge
+     exercise.)**
+   - MVC can be used to structure different layers of an application into:
+     - A data layer `the model`, that contains: Business logic, Databases, etc
+     - A action layer `the controller`, that contains: actions/paths the application can execute.
+     - A presentation layer `the view`, that contains: forms, windows, text boxes, terminal output, webpages.
+ 
+ - **Exercise 6.20 Extend either your adventure project or the zuul-better project so that a room
+     can contain a single item. Items have a description and a weight. When creating rooms and
+     setting their exits, items for this game should also be created. When a player enters a room,
+     information about an item present in this room should be displayed.**
+   -  Done see [ZuulBetter :: Item.java ](ZuulBetter/Item.java) and [ZuulBetter :: Room.java ](ZuulBetter/Room.java)  
+   
+ - **Exercise 6.21 How should the information be produced about an item present in a room?
+     Which class should produce the string describing the item? Which class should print it?
+     Why? Explain in writing. If answering this exercise makes you feel you should change your
+     implementation, go ahead and make the changes.**
+   -  Done see [ZuulBetter :: Item.java ](ZuulBetter/Item.java) and [ZuulBetter :: Room.java ](ZuulBetter/Room.java)  
+
+ - **Exercise 6.22 Modify the project so that a room can hold any number of items. Use a
+     collection to do this. Make sure the room has an addItem method that places an item into the
+     room. Make sure all items get shown when a player enters a room.**
+   -  Done see [ZuulBetter :: Item.java ](ZuulBetter/Item.java) and [ZuulBetter :: Room.java ](ZuulBetter/Room.java)  
+ 
+ - **Exercise 6.23 Implement a back command. This command does not have a second word.
+     Entering the back command takes the player into the previous room he/she was in.**
+   -  Done see [ZuulBetter :: Game.java ](ZuulBetter/Game.java) and [ZuulBetter :: Room.java ](ZuulBetter/Room.java)  
+ 
+ - **Exercise 6.24 Test your new command. Does it work as expected? Also test cases where
+     the command is used incorrectly. For example, what does your program do if a player types a
+     second word after the back command? Does it behave sensibly?**
+   - {!}
+ 
+ - **Exercise 6.25 What does your program do if you type “back” twice? Is this behavior sensible?**
+   - {!}
+ 
+ - **Exercise 6.28 Refactor your project to introduce a separate Player class. A Player
+     object should store at least the current room of the player, but you may also like to store the
+     player’s name or other information.**
+ 
+ - **Exercise 6.29 Implement an extension that allows a player to pick up one single item. This
+     includes implementing two new commands: take and drop.**
+ 
+ - **Exercise 6.30 Extend your implementation to allow the player to carry any number of
+     items.**
+ 
+ - **Exercise 6.31 Add a restriction that allows the player to carry items only up to a specified
+     maximum weight. The maximum weight a player can carry is an attribute of the player.**
+ 
+ - **Exercise 6.32 Implement an items command that prints out all items currently carried and
+     their total weight.**
+ 
+ - **Exercise 6.33 Add a magic cookie item to a room. Add an eat cookie command. If a player
+     finds and eats the magic cookie, it increases the weight that the player can carry. (You might
+     like to modify this slightly to better fit into your own game scenario.)**

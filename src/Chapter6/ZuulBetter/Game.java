@@ -1,23 +1,22 @@
 package ZuulBetter;
 
 /**
- *  This class is the main class of the "World of Zuul" application. 
- *  "World of Zuul" is a very simple, text based adventure game.  Users 
- *  can walk around some scenery. That's all. It should really be extended 
- *  to make it more interesting!
- * 
- *  To play this game, create an instance of this class and call the "play"
- *  method.
- * 
- *  This main class creates and initialises all the others: it creates all
- *  rooms, creates the parser and starts the game.  It also evaluates and
- *  executes the commands that the parser returns.
- * 
- * @author  Michael Kolling and David J. Barnes
+ * This class is the main class of the "World of Zuul" application.
+ * "World of Zuul" is a very simple, text based adventure game.  Users
+ * can walk around some scenery. That's all. It should really be extended
+ * to make it more interesting!
+ * <p>
+ * To play this game, create an instance of this class and call the "play"
+ * method.
+ * <p>
+ * This main class creates and initialises all the others: it creates all
+ * rooms, creates the parser and starts the game.  It also evaluates and
+ * executes the commands that the parser returns.
+ *
+ * @author Michael Kolling and David J. Barnes
  * @version 2008.03.30
  */
-
-public class Game 
+public class Game
 {
     private Parser parser;
     private Room currentRoom;
@@ -114,6 +113,9 @@ public class Game
         else if (commandWord.equals("go")) {
             goRoom(command);
         }
+        else if (commandWord.equals("back")) {
+            goBack();
+        }
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
         }
@@ -158,6 +160,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
+            nextRoom.setPreviousRoom(currentRoom);
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
@@ -177,5 +180,11 @@ public class Game
         else {
             return true;  // signal that we want to quit
         }
+    }
+
+    private void goBack()
+    {
+        currentRoom = currentRoom.getPreviousRoom();
+        System.out.println(currentRoom.getLongDescription());
     }
 }
