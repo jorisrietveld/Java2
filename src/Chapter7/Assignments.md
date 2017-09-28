@@ -3,8 +3,15 @@ Assignments for this week:
  - 7.1 to 7.34
 
 # Assignment Solutions
- - 7.1
- - 7.2
+ - Exercise 7.1 Add several comments to the sales item while keeping an eye on the inspector 
+   for the comments list. Make sure the list behaves as expected (that is, its size should increase). 
+   You may also like to inspect the elementData field of the ArrayList object.
+   - 
+   
+ - Exercise 7.2 Check that the showInfo method correctly prints the item information, including the comments. 
+    Try this both for items with and without comments.
+    - 
+    
  - 7.3
  - 7.4
  - 7.5

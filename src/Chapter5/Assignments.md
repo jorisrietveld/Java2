@@ -257,52 +257,87 @@ Assignments for this week:
  - 5.49 **Properly document all classes in your version of the TechSupport project**
    - Done
  
- - 5.50 **Create a DrawDemo object and experiment with its various methods. Read the DrawDemo source code and describe (in writing) how each method works.**
-   -  
+ - 5.50 **Create a DrawDemo object and experiment with its various methods. Read the DrawDemo source code 
+        and describe (in writing) how each method works.**
+   - 
    
- - 5.51 **Create a Pen object interactively using its default constructor (the construc- tor without parameters). Experiment with its methods. While you do this, make sure to have a window open showing you the documentation of the Pen class (either the editor window in Documentation view or a web-browser window showing the project documentation). Refer to the documentation to be certain what each method does.**
- 
- - 5.52 **Interactively create an instance of class Canvas and try some of its meth- ods. Again, refer to the class’s documentation while you do this.**
+ - 5.51 **Create a Pen object interactively using its default constructor (the construc- tor without parameters). 
+        Experiment with its methods. While you do this, make sure to have a window open showing you the documentation 
+        of the Pen class (either the editor window in Documentation view or a web-browser window showing the project documentation). 
+        Refer to the documentation to be certain what each method does.**
+     - 
+   - 
+ - 5.52 **Interactively create an instance of class Canvas and try some of its meth- ods. Again, refer to the class’s 
+        documentation while you do this.**
+      - 
  
  - 5.53 **Find some uses of the color constants in the code of class DrawDemo .**
+      - 
  
- - 5.54 **Write down four more color constants that are available in the Color class. Refer to the class’s documentation to find out what they are.**
+ - 5.54 **Write down four more color constants that are available in the Color class. Refer to the class’s 
+        documentation to find out what they are.**
  
- - 5.55 **Create a canvas. Using the canvas’s methods interactively, draw a red circle near the center of the canvas. Now draw a yellow rectangle.**
+ - 5.55 **Create a canvas. Using the canvas’s methods interactively, draw a red circle near the center of the 
+        canvas. Now draw a yellow rectangle.**
  
  - 5.56 **How do you clear the whole canvas?**
  
- - 5.57 **In class DrawDemo , create a new method named drawTriangle . This method should create a pen (as in the drawSquare method) and then draw a green triangle.**
+ - 5.57 **In class DrawDemo , create a new method named drawTriangle . This method should create a pen 
+        (as in the drawSquare method) and then draw a green triangle.**
  
  - 5.58 **Write a method drawPentagon that draws a pentagon.**
  
- - 5.59 **Write a method drawPolygon(int n) that draws a regular polygon with n sides (thus, n=3 draws a triangle, n=4 draws a square, etc.).**
+ - 5.59 **Write a method drawPolygon(int n) that draws a regular polygon with n sides 
+        (thus, n=3 draws a triangle, n=4 draws a square, etc.).**
  
  - 5.60 **Write a method called spiral that draws a spiral (see Figure 5.6).**
  
- - 5.61 **Add a method to your DrawDemo class that produces a picture on the can- vas directly (without using a pen object). The picture can show anything you like, but should at least include some shapes, different colors, and text. Use code completion in the process of entering your code.**
+ - 5.61 **Add a method to your DrawDemo class that produces a picture on the can- vas directly 
+        (without using a pen object). The picture can show anything you like, but should at least include some 
+        shapes, different colors, and text. Use code completion in the process of entering your code.**
  
  - 5.62 **Change the method bounce in class BallDemo to let the user choose how many balls should be bouncing.**
  
- - 5.63 **Which type of collection ( ArrayList , HashMap , or HashSet ) is most suita- ble for storing the balls for the new bounce method? Discuss in writing, and justify your choice.**
- 
+ - 5.63 **Which type of collection ( ArrayList , HashMap , or HashSet ) is most suita- ble for storing 
+        the balls for the new bounce method? Discuss in writing, and justify your choice.**
+  
  - 5.64 **Change the bounce method to place the balls randomly anywhere in the top half of the screen.**
  
- - 5.65 **Write a new method named boxBounce . This method draws a rectan- gle (the “box”) on screen and one or more balls inside the box. For the balls, do not use BouncingBall , but create a new class BoxBall that moves around inside the box, bounc- ing off the walls of the box so that the ball always stays inside. The initial position and speed of the ball should be random. The boxBounce method should have a parameter that specifies how many balls are in the box.**
+ - 5.65 **Write a new method named boxBounce . This method draws a rectan- gle (the “box”) on screen and one 
+        or more balls inside the box. For the balls, do not use BouncingBall , but create a new class 
+        BoxBall that moves around inside the box, bounc- ing off the walls of the box so that the ball 
+        always stays inside. The initial position and speed of the ball should be random. The boxBounce 
+        method should have a parameter that specifies how many balls are in the box.**
  
  - 5.66 **Give the balls in boxBounce random colors**
  
- - 5.67 **In class BouncingBall , you will find a definition of gravity (a simple inte- ger). Increase or decrease the gravity value; compile and run the bouncing ball demo again. Do you observe a change**
+ - 5.67 **In class BouncingBall , you will find a definition of gravity (a simple inte- ger). Increase 
+        or decrease the gravity value; compile and run the bouncing ball demo again. Do you observe a change**
  
  - 5.68 **Write constant declarations for the following:** 
    - **A public variable that is used to measure tolerance, with the value 0.001.**
    - **A private variable that is used to indicate a pass mark, with the integer value of 40.**
    - **A public character variable that is used to indicate that the help command is 'h' .**
  
- - 5.69 **Take a look at the LogEntry class in the weblog-analyzer project from Chapter 4. How have constants been used in that class? Do you think that this is a good use of constants?**
+ - 5.69 **Take a look at the LogEntry class in the weblog-analyzer project from Chapter 4. How have 
+        constants been used in that class? Do you think that this is a good use of constants?**
  
- - 5.70 **Suppose that a change to the weblog-analyzer project meant that it was no longer necessary to store year values in the dataValues array in the LogEntry class. How much of the class would need to be altered if the month value were now to be stored at index 0 , the day value at index 1 , and so on? Do you see how the use of named constants for spe- cial values simplifies this sort of process?**
+ - 5.70 **Suppose that a change to the weblog-analyzer project meant that it was no longer necessary 
+        to store year values in the dataValues array in the LogEntry class. How much of the class would 
+        need to be altered if the month value were now to be stored at index 0 , the day value at index 1 , 
+        and so on? Do you see how the use of named constants for spe- cial values simplifies this sort of process?**
  
- - 5.72 **There is a rumor circulating on the Internet that George Lucas (the creator of the Star Wars movies) uses a formula to create the names for the characters in his stories (Jar Jar Binks, ObiWan Kenobi, etc.). The formula—allegedly—is this: Your Star Wars first name: 1 Take the first three letters of your last name. 2 Add to that the first two letters of your first name. Your Star Wars last name: 1 Take the first two letters of your mother’s maiden name. 2 Add to this the first three letters of the name of the town or city where you were born. And now your task: Create a new BlueJ project named star-wars . In it create a class named NameGenerator . This class should have a method named generateStarWarsName that generates a Star Wars name, following the method described above. You will need to find out about a method of the String class that generates a substring.**
+ - 5.72 **There is a rumor circulating on the Internet that George Lucas (the creator of the Star Wars movies) 
+        uses a formula to create the names for the characters in his stories (Jar Jar Binks, ObiWan Kenobi, etc.). 
+        The formula—allegedly—is this: Your Star Wars first name: 1 Take the first three letters of your last name. 
+        2 Add to that the first two letters of your first name. Your Star Wars last name: 1 Take the first 
+        two letters of your mother’s maiden name. 2 Add to this the first three letters of the name of the town or 
+        city where you were born. And now your task: Create a new BlueJ project named star-wars . 
+        In it create a class named NameGenerator . This class should have a method named generateStarWarsName 
+        that generates a Star Wars name, following the method described above. You will need to find out about a 
+        method of the String class that generates a substring.**
  
- - 5.73 **Assume that we want to swap the values of two integer variables, a and b. To do this, we write a method public void swap(int i1, int i2) { int tmp = i1; i1 = i2; i2 = tmp; } Then we call this method with our a and b variables: swap(a, b); Are a and b swapped after this call? If you test it, you will notice that they are not! Why does this not work? Explain in detail.**
+ - 5.73 **Assume that we want to swap the values of two integer variables, a and b. To do this, we write a 
+        method public void swap(int i1, int i2) { int tmp = i1; i1 = i2; i2 = tmp; } Then we call this method 
+        with our a and b variables: swap(a, b); Are a and b swapped after this call? If you test it, you will 
+        notice that they are not! Why does this not work? Explain in detail.**

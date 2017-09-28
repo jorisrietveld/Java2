@@ -53,7 +53,7 @@ public class Player
      * @param newItemWeight The weight of the new item to add.
      * @return boolean Is the user able to carry more items?
      */
-    public boolean isAbleToCarry( int newItemWeight )
+    private boolean isAbleToCarry( int newItemWeight )
     {
         int totalWeight = backpack.values().stream().mapToInt( Item::getWeight ).sum();
 
