@@ -1,4 +1,4 @@
-package zuul
+package ZuulEnumTwo;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;

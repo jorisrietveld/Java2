@@ -7,10 +7,8 @@ import java.util.Iterator;
 
 /**
  * Class Room - a room in an adventure game.
- * <p>
  * This class is part of the "World of Zuul" application.
  * "World of Zuul" is a very simple, text based adventure game.
- * <p>
  * A "Room" represents one location in the scenery of the game.  It is
  * connected to other rooms via exits.  For each existing exit, the room
  * stores a reference to the neighboring room.
@@ -32,7 +30,7 @@ public class Room
      *
      * @param description The room's description.
      */
-    public Room(String description)
+    public Room ( String description )
     {
         this.description = description;
         exits = new HashMap<String, Room>();
@@ -44,7 +42,7 @@ public class Room
      *
      * @return the previous room
      */
-    public Room getPreviousRoom()
+    public Room getPreviousRoom ()
     {
         return previousRoom;
     }
@@ -54,7 +52,7 @@ public class Room
      *
      * @param previousRoom the previous room
      */
-    public void setPreviousRoom(Room previousRoom)
+    public void setPreviousRoom ( Room previousRoom )
     {
         this.previousRoom = previousRoom;
     }
@@ -65,9 +63,9 @@ public class Room
      * @param direction The direction of the exit.
      * @param neighbor  The room to which the exit leads.
      */
-    public void setExit(String direction, Room neighbor)
+    public void setExit ( String direction, Room neighbor )
     {
-        exits.put(direction, neighbor);
+        exits.put( direction, neighbor );
     }
 
     /**
@@ -75,7 +73,7 @@ public class Room
      *
      * @return The short description of the room (the one that was defined in the constructor).
      */
-    public String getShortDescription()
+    public String getShortDescription ()
     {
         return description;
     }
@@ -87,7 +85,7 @@ public class Room
      *
      * @return A long description of this room
      */
-    public String getLongDescription()
+    public String getLongDescription ()
     {
         return "You are " + description + ".\n" + getExitString();
     }
@@ -95,13 +93,15 @@ public class Room
     /**
      * Return a string describing the room's exits, for example
      * "Exits: north west".
+     *
      * @return Details of the room's exits.
      */
-    private String getExitString()
+    private String getExitString ()
     {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
-        for(String exit : keys) {
+        for ( String exit : keys )
+        {
             returnString += " " + exit;
         }
         return returnString;
@@ -114,9 +114,9 @@ public class Room
      * @param direction The exit's direction.
      * @return The room in the given direction.
      */
-    public Room getExit(String direction)
+    public Room getExit ( String direction )
     {
-        return exits.get(direction);
+        return exits.get( direction );
     }
 
     /**
@@ -125,7 +125,7 @@ public class Room
      * @param name the name
      * @return the item
      */
-    public Item getItem( String name )
+    public Item getItem ( String name )
     {
         return items.getOrDefault( name, null );
     }
@@ -135,7 +135,7 @@ public class Room
      *
      * @param item the item
      */
-    public void setItem( Item item )
+    public void setItem ( Item item )
     {
         this.items = items;
     }
@@ -145,7 +145,7 @@ public class Room
      *
      * @return the items
      */
-    public HashMap<String, Item> getItems()
+    public HashMap<String, Item> getItems ()
     {
         return items;
     }
@@ -155,7 +155,7 @@ public class Room
      *
      * @param items the items
      */
-    public void setItems(HashMap<String, Item> items)
+    public void setItems ( HashMap<String, Item> items )
     {
         this.items = items;
     }

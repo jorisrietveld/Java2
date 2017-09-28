@@ -7,15 +7,9 @@ package ZuulBetter;
  */
 public class Item
 {
-    /**
-     * The Description.
-     */
-    public String description;
-    /**
-     * The Weight.
-     */
-    public int weight;
-
+    private String itemName;
+    private String description;
+    private int weight;
 
     /**
      * Instantiates a new Item.
@@ -23,9 +17,10 @@ public class Item
      * @param description the description
      * @param weight      the weight
      */
-    public Item(String description, int weight)
+    public Item ( String description, int weight )
     {
         this.description = description;
+        this.itemName = description;
         this.weight = weight;
     }
 
@@ -34,9 +29,29 @@ public class Item
      *
      * @return the description
      */
-    public String getDescription()
+    public String getDescription ()
     {
         return description;
+    }
+
+    /**
+     * Getter for property 'itemName'.
+     *
+     * @return Value for property 'itemName'.
+     */
+    public String getItemName ()
+    {
+        return itemName;
+    }
+
+    /**
+     * Setter for property 'itemName'.
+     *
+     * @param itemName Value to set for property 'itemName'.
+     */
+    public void setItemName ( String itemName )
+    {
+        this.itemName = itemName;
     }
 
     /**
@@ -44,7 +59,7 @@ public class Item
      *
      * @param description the description
      */
-    public void setDescription(String description)
+    public void setDescription ( String description )
     {
         this.description = description;
     }
@@ -54,7 +69,7 @@ public class Item
      *
      * @return the weight
      */
-    public int getWeight()
+    public int getWeight ()
     {
         return weight;
     }
@@ -64,8 +79,18 @@ public class Item
      *
      * @param weight the weight
      */
-    public void setWeight(int weight)
+    public void setWeight ( int weight )
     {
         this.weight = weight;
+    }
+
+    /**
+     * Gets an string representation of the items properties.
+     * @return String An string that represents the item.
+     */
+    @Override
+    public String toString ()
+    {
+        return String.format( "Item{ itemName='%s', description='%s', weight=%d }", itemName, description, weight );
     }
 }

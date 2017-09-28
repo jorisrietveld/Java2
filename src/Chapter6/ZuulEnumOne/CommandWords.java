@@ -1,4 +1,4 @@
-package package ZuulEnumOne;
+package ZuulEnumOne;
 
 import java.util.HashMap;
 
@@ -11,47 +11,52 @@ public class CommandWords
     /**
      * Constructor - initialise the command words.
      */
-    public CommandWords()
+    public CommandWords ()
     {
         validCommands = new HashMap<String, CommandWord>();
-        validCommands.put("go", CommandWord.GO);
-        validCommands.put("help", CommandWord.HELP);
-        validCommands.put("quit", CommandWord.QUIT);
+        validCommands.put( "go", CommandWord.GO );
+        validCommands.put( "help", CommandWord.HELP );
+        validCommands.put( "quit", CommandWord.QUIT );
     }
 
     /**
      * Find the CommandWord associated with a command word.
+     *
      * @param commandWord The word to look up.
      * @return The CommandWord correspondng to commandWord, or UNKNOWN
-     *         if it is not a valid command word.
+     * if it is not a valid command word.
      */
-    public CommandWord getCommandWord(String commandWord)
+    public CommandWord getCommandWord ( String commandWord )
     {
-        CommandWord command = validCommands.get(commandWord);
-        if(command != null) {
+        CommandWord command = validCommands.get( commandWord );
+        if ( command != null )
+        {
             return command;
         }
-        else {
+        else
+        {
             return CommandWord.UNKNOWN;
         }
     }
-    
+
     /**
-     * Check whether a given String is a valid command word. 
+     * Check whether a given String is a valid command word.
+     *
      * @return true if it is, false if it isn't.
      */
-    public boolean isCommand(String aString)
+    public boolean isCommand ( String aString )
     {
-        return validCommands.containsKey(aString);
+        return validCommands.containsKey( aString );
     }
 
     /**
      * Print all valid commands to System.out.
      */
-    public void showAll() 
+    public void showAll ()
     {
-        for(String command : validCommands.keySet()) {
-            System.out.print(command + "  ");
+        for ( String command : validCommands.keySet() )
+        {
+            System.out.print( command + "  " );
         }
         System.out.println();
     }

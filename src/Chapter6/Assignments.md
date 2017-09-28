@@ -181,27 +181,32 @@ Assignments for this week:
  - **Exercise 6.24 Test your new command. Does it work as expected? Also test cases where
      the command is used incorrectly. For example, what does your program do if a player types a
      second word after the back command? Does it behave sensibly?**
-   - {!}
+   - Yes, it works see  [ Test.ZuulBetter.TestGame.java :: main ](Test/ZuulBetter/TestGame.java)
  
  - **Exercise 6.25 What does your program do if you type “back” twice? Is this behavior sensible?**
-   - {!}
+   - You will go one room back.
  
- - **Exercise 6.28 Refactor your project to introduce a separate Player class. A Player
-     object should store at least the current room of the player, but you may also like to store the
-     player’s name or other information.**
+ - **Exercise 6.28 Refactor your project to introduce a separate Player class. A Player object should store at 
+     least the current room of the player, but you may also like to store the player’s name or other information.**
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 
  
- - **Exercise 6.29 Implement an extension that allows a player to pick up one single item. This
-     includes implementing two new commands: take and drop.**
+ - **Exercise 6.29 Implement an extension that allows a player to pick up one single item. This includes implementing 
+     two new commands: take and drop.**
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 
  
  - **Exercise 6.30 Extend your implementation to allow the player to carry any number of
      items.**
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 
  
  - **Exercise 6.31 Add a restriction that allows the player to carry items only up to a specified
      maximum weight. The maximum weight a player can carry is an attribute of the player.**
- 
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 
+   
  - **Exercise 6.32 Implement an items command that prints out all items currently carried and
      their total weight.**
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 
  
  - **Exercise 6.33 Add a magic cookie item to a room. Add an eat cookie command. If a player
      finds and eats the magic cookie, it increases the weight that the player can carry. (You might
      like to modify this slightly to better fit into your own game scenario.)**
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 

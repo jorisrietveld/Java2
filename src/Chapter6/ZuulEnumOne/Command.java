@@ -1,5 +1,5 @@
 package ZuulEnumOne;
- 
+
 public class Command
 {
     private CommandWord commandWord;
@@ -8,22 +8,23 @@ public class Command
     /**
      * Create a command object. First and second words must be supplied, but
      * the second may be null.
+     *
      * @param commandWord The CommandWord. UNKNOWN if the command word
-     *                  was not recognised.
-     * @param secondWord The second word of the command. May be null.
+     *                    was not recognised.
+     * @param secondWord  The second word of the command. May be null.
      */
-    public Command(CommandWord commandWord, String secondWord)
+    public Command ( CommandWord commandWord, String secondWord )
     {
         this.commandWord = commandWord;
         this.secondWord = secondWord;
     }
 
-
     /**
      * Return the command word (the first word) of this command.
+     *
      * @return The command word.
      */
-    public CommandWord getCommandWord()
+    public CommandWord getCommandWord ()
     {
         return commandWord;
     }
@@ -32,7 +33,7 @@ public class Command
      * @return The second word of this command. Returns null if there was no
      * second word.
      */
-    public String getSecondWord()
+    public String getSecondWord ()
     {
         return secondWord;
     }
@@ -40,7 +41,7 @@ public class Command
     /**
      * @return true if this command was not understood.
      */
-    public boolean isUnknown()
+    public boolean isUnknown ()
     {
         return (commandWord == CommandWord.UNKNOWN);
     }
@@ -48,7 +49,7 @@ public class Command
     /**
      * @return true if the command has a second word.
      */
-    public boolean hasSecondWord()
+    public boolean hasSecondWord ()
     {
         return (secondWord != null);
     }
