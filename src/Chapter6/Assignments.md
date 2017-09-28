@@ -196,7 +196,7 @@ Assignments for this week:
  
  - **Exercise 6.30 Extend your implementation to allow the player to carry any number of
      items.**
-   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java) 
+   - Done, see [ZuulBetter :: Player.java ](ZuulBetter/Player.java)
  
  - **Exercise 6.31 Add a restriction that allows the player to carry items only up to a specified
      maximum weight. The maximum weight a player can carry is an attribute of the player.**
