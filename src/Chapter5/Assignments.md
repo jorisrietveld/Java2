@@ -23,7 +23,8 @@ Assignments for this week:
      - Documentation about the classes methods: overloads, return types and what arguments they take.
      - Documentation about the classes Constructors and destructors: an Description, overloads, and what arguments they take.
      
- - **5.3 Look up the startsWith method in the documentation for String. There are two versions. Describe in your own words what they do and the differences between them.**
+ - **5.3 Look up the startsWith method in the documentation for String. There are two versions. Describe in your own 
+    words what they do and the differences between them.**
    - Both take an string as first argument, the optional integer argument shifts the index from witch the 
    sequence gets matched.
    
@@ -41,111 +42,146 @@ Assignments for this week:
      String.length() 
      ```
    
- - **5.6 If  you  found  methods  for  the  two  tasks  above,  how  did  you  find  them?  Is  it  easy or hard to find methods you are looking for? Why?**
+ - **5.6 If  you  found  methods  for  the  two  tasks  above,  how  did  you  find  them?  Is  it  easy or hard to 
+    find methods you are looking for? Why?**
     - Intellij auto complete and crtl+Q
- - **5.7 Find the trim method in the String class’s documentation. Write down the signature of that method. Write down an example call to that method on a String variable called text.**
-   - The signature of the trim method: public String trim()
-     ```java
-     String text = "  Some Text!  ";
-     System.out.println( text.trim() );
-     ```
- - **5.8 Implement this improvement in your version of the tech-support1 project. Test it to confirm that it is tolerant of extra space around the word ‘bye’.** 
+    
+ - **5.7 Find the trim method in the String class’s documentation. Write down the signature of that method. Write down 
+    an example call to that method on a String variable called text.**
+    - The signature of the trim method: public String trim()
+        ```java
+        class Test{ 
+            private void test(){
+                String text = "  Some Text!  ";
+                System.out.println( text.trim() );
+        }}
+        ```
+ - **5.8 Implement this improvement in your version of the tech-support1 project. Test it to confirm that it is 
+    tolerant of extra space around the word ‘bye’.** 
    - Done see file [see file](main/SupportSystem.java), line 43
  
- - **5.9 Improve the code of the SupportSystem class in the tech-support1 project so that case in the input is ignored. Use the String class’s toLowerCase method to do this. Remember that this method will not actually change the String it is called on, but result in the creation of a new one being created with slightly different contents.** 
+ - **5.9 Improve the code of the SupportSystem class in the tech-support1 project so that case in the input is ignored. 
+    Use the String class’s toLowerCase method to do this. Remember that this method will not actually change the String 
+    it is called on, but result in the creation of a new one being created with slightly different contents.** 
    - Done see file [see file](main/SupportSystem.java), line 43
  
  - **5.10 Find the equals method in the documentation for class String . What is the return type of this method?**
-   - ```java
+    - ```
      boolean
      ```
  
  - **5.11 Change your implementation to use the equals method instead of startsWith .**
    - Done see file [see file](main/SupportSystem.java), line 45
  
- - **5.12 Find the class Random in the Java class library documentation. Which pack- age is it in? What does it do? How do you construct an instance? How do you generate a random number? Note that you will probably not understand everything that is stated in the documentation. Just try to find out what you need to know.**
-   - Random is in package: `java.util.Random`
-   - It gets pseudo-random bytes.
+ - **5.12 Find the class Random in the Java class library documentation. Which pack- age is it in? What does it do? 
+    How do you construct an instance? How do you generate a random number? Note that you will probably not understand 
+    everything that is stated in the documentation. Just try to find out what you need to know.**
+    - Random is in package: `java.util.Random`
+    - It gets pseudo-random numbers.
    
  - **5.13 Write a small code fragment (on paper) that generates a random integer number using this class.**
-   - Getting an random integer: 
-    ```java 
-    (new Random()).nextInt();
-    // Or
-    Random qbit = new Random();
-    random.nextLong();
+    - Getting an random integer: 
+        ```java
+        class Test{ 
+            private int getInteger(){ 
+                Random notSoRandomIfYouAskMe = new Random();
+                return notSoRandomIfYouAskMe.nextLong();
+        }}
+        ```
+    
+ - **5.14 Write some code (in BlueJ) to test the generation of random numbers. To do this, create a new class called 
+     RandomTester . You can create this class in the tech-support1 project, or you can create a new project for it—it 
+     doesn’t matter. In class RandomTester , implement two methods: printOneRandom (which prints out one random number) 
+     and printMultiRandom(int howMany) (which has a parameter to specify how many num- bers you want, and then prints 
+     out the appropriate number of random numbers).**  
+    ```java
+    class RandomTester{ 
+        private java.security.SecureRandom secureRandom = new java.security.SecureRandom();
+     
+        public void printOneRandom(){
+            System.out.printf( "Pseudo-random number generated: %d", secureRandom.nextInt() );
+        }
+        public void printMultiRandom( int howMany ){
+            System.out.println( "Printing %d pseudo-random numbers for the win:" );
+            secureRandom.ints( howMany ).forEach( System.out::println );
+    }}
+    ```
+   
+ - 5.15 **Find the nextInt method in class Random that allows the target range of random numbers to be specified. 
+    What are the possible random numbers that are generated when you call this method with 100 as its parameter?**
+    - The number range `[0-99]` because its 0 inclusive to the number specified as argument exclusive.
+    
+ - 5.16 **Write a method in your RandomTester class called throwDice that re- turns a random number between 1 and 6 (inclusive).**
+    ```java
+    class RandomTester{ 
+        private java.security.SecureRandom secureRandom = new java.security.SecureRandom();
+        
+        public void printOneRandom(){
+            System.out.printf( "Pseudo-random number generated: %d", secureRandom.nextInt() );
+        }
+        public void printMultiRandom( int howMany ){
+            System.out.println( "Printing %d pseudo-random numbers for the win:" );
+            secureRandom.ints( howMany ).forEach( System.out::println );
+        }
+        public int throwDice(){
+            return secureRandom.nextInt( 7 );
+        }
+    }
     ```
     
- - **5.14 Write some code (in BlueJ) to test the generation of random numbers. To do this, create a new class called RandomTester . You can create this class in the tech-support1 project, or you can create a new project for it—it doesn’t matter. In class RandomTester , implement two methods: printOneRandom (which prints out one random number) and printMultiRandom(int howMany) (which has a parameter to specify how many num- bers you want, and then prints out the appropriate number of random numbers).**  
-   ```java
-   public class nsa
-   {
-      Random onwillekeurig = new java.util.Random();
-   
-      public void printRand()
-      {
-           System.out.printf( "Pseudo-random number generated: %d", onwillekeurig.nextInt() );
-      }
-   }
-   ```
-   
- - 5.15 **Find the nextInt method in class Random that allows the target range of random numbers to be specified. What are the possible random numbers that are generated when you call this method with 100 as its parameter?**
-     ```java
-     public void randomTester()
-     {
-         return (new Random()).nextInt(6)+1;
-     }
-     ```
- - 5.16 **Write a method in your RandomTester class called throwDice that re- turns a random number between 1 and 6 (inclusive).**
-     ```java
-     public void getResponse()
-     {
-         int rNum = (new Random()).nextInt(3);
-         string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
-     }
-     ```
  - 5.17 **Write a method called getResponse that randomly returns one of the strings "yes" , "no" , or "maybe" .**
     ```java
-    public void getResponse()
-    {
-        int rNum = (new Random()).nextInt(3);
-        string response = (rNum == 2) ? "maybe" : rNum ? "no" : "yes";
+    class RandomTester{ 
+        private java.security.SecureRandom secureRandom = new java.security.SecureRandom();
+     
+        public String getResponse()
+        {
+           int randomNumber = secureRandom.nextInt( 3 ); 
+           return randomNumber == 2 ? "maybe" : randomNumber ? "no" : "yes";
+        }
     }
     ```
  - 5.18 **Extend your getResponse method so that it uses an ArrayList to store an arbitrary number of responses and randomly returns one of them.**
     ```java
-    public void getResponse()
-    {
-        ArrayList response = new ArrayList<>() {{
-            add("Some response");
-            add("Some other response");
-            add("Tunderdome 25 Years of hardcore!!!"); 
-        }}
-        int rNum = (new Random()).nextInt(3);
-        return response.get( nNumb );
-    }
+        class RandomTester{ 
+            private java.security.SecureRandom secureRandom = new java.security.SecureRandom();
+            private java.util.ArrayList<String> response = new ArrayList<>() {{
+                add("Some response");
+                add("Some other response");
+                add("Tunderdome 25 Years of hardcore!!!"); 
+                add("Hack The Plannet!");
+            }};
+         
+            public String getResponse(){
+               return response.get( secureRandom.nextInt( response.size() -1 )  );
+            }
+        }
     ```
+    
  - 5.19 **Add a method to your RandomTester class that takes a parameter max and generates a random number in the range 1 to max (inclusive).**
     ```java
-    public void getResponse()
-    {
-        ArrayList response = new ArrayList<>() {{
-            add("Some response");
-            add("Some other response");
-            add("Tunderdome 25 Years of hardcore!!!"); 
-        }}
-        int rNum = (new Random()).nextInt(3);
-        return response.get( nNumb );
-    }
+        class RandomTester{ 
+            private java.security.SecureRandom secureRandom = new java.security.SecureRandom();
+            
+            public int getRandomInt( int maxInclusive ){
+               return secureRandom.nextInt( ++maxInclusive );
+            }
+        }
     ```
- - 5.20 **Add a method to your RandomTester class that takes two parameters, min and max , and generates a random number in the range min to max (inclusive). Rewrite the body of the method you wrote for the previous exercise so that it now calls this new method to generate its result. Note that it should not be necessary to use a loop in this method.**
-    ```java
-    public int getRandomNumber( int min, int max )
-    {
-        Random rand = new Random();
-        return ( rand.nextInt( max-min ) + min )
-    }
+    
+ - 5.20 **Add a method to your RandomTester class that takes two parameters, min and max , and generates a random number in the 
+    range min to max (inclusive). Rewrite the body of the method you wrote for the previous exercise so that it now calls this 
+    new method to generate its result. Note that it should not be necessary to use a loop in this method.**
+     ```java
+            class RandomTester{ 
+                private java.security.SecureRandom secureRandom = new java.security.SecureRandom();
+                
+                public int getRandomInt( int minInclusive, int maxInclusive ){
+                   return secureRandom.nextInt( maxInclusive - minInclusive ) + minInclusive;
+                }
+            }
     ```
+     
  - 5.21 **Implement in your version of the tech-support system the random-response solution discussed here.**
    - Done see file [see file](main/SupportSystem.java)
 
@@ -159,13 +195,19 @@ Assignments for this week:
    Anny object, Yep that is possible.
    
  - 5.25 **How do you check how many entries are contained in a map?**
-     ```java
-     Map<String, Integer> someMap = new Map<>();
-     someMap.size();    
-     ```
+    ```java
+        class Test{
+            public mapSize(){  
+               java.util.Map<String, Integer> fcksGiven = new Map<>();
+               System.out.printf( "Today there are %d ", fcksGiven.size() );
+            }
+        }
+    ```
      
- - 5.26 **Create a class MapTester (either in your current project or in a new project).In it, use a HashMap to implement a phone book similar to the one in the example above. (Remember that you must import java.util.HashMap .) In this class, implement two methods:**
-    ```java 
+ - 5.26 **Create a class MapTester (either in your current project or in a new project).In it, use a HashMap to 
+        implement a phone book similar to the one in the example above. (Remember that you must import java.util.HashMap .) 
+        In this class, implement two methods:**
+    ```
     public void enterNumber(String name, String number);
     public String lookupNumber(String name);
     ```
@@ -179,24 +221,46 @@ Assignments for this week:
    - You get 2 reference's.
    
  - 5.29 **How do you check whether a given key is contained in a map? (Give a Java code example.)**
-     ```java
-    HashMap<String, String> someMap = new HashMap<>();
-    someMap.containsKey("someKey");
-     ```
+    ```java
+    class Test{
+        private HashMap<String, String> peopleTrackedByTheNSA = new HashMap<String, String>(){{
+            //   (name,    is being tracked?)
+            put( "Snowden", "Yes" );
+            put( "Assange", "Yes" );
+        }};
+    
+        public void areYouBeingTracked( String yourName ){
+            System.out.println( peopleTrackedByTheNSA.getOrDefault( yourName, "Probably yes" ) );
+        }
+    }
+    ```
  - 5.30 **What happens when you try to look up a value and the key does not exist in the map?**
     You get `null` back. You could use `getOrDefault( key, defaultReturnValue )` if you want something different.
  
  - 5.31 **How do you check how many entries are contained in a map?**
-     ```java
-    HashMap<String, String> someMap = new HashMap<>();
-    someMap.size();
-     ```
+    ```java
+        class Test{
+            private HashMap<String, String> peopleTrackedByTheNSA = new HashMap<String, String>(){{
+                //   (name,    is being tracked?)
+                put( "Snowden", "Yes" );
+                put( "Assange", "Yes" );
+            }};
+        
+            public void getDatabaseSize( String yourName ){
+                System.out.println( peopleTrackedByTheNSA.size() );
+            }
+        }
+    ```
  
  - 5.32 **How do you print out all keys currently stored in a map?**
     ```java
-    HashMap<String, String> someMap = new HashMap<>();
-    someMap.keySet().forEach( System.out::println );
-    ```
+        class Test{
+            private HashMap<String, String> peopleTrackedByTheNSA = new HashMap<String, String>(); // Contains half the planets population.
+        
+            public void printListOfDangerousPeople( String yourName ){
+                 peopleTrackedByTheNSA.keySet().forEach( System.out::println );
+            }
+        }
   
  - 5.33 **Implement the changes discussed here in your own version of the TechSupport system. Test it to get a feel for how well it works.**
    - Done see file [see file](main/SupportSystem.java)
@@ -210,44 +274,82 @@ Assignments for this week:
  - 5.35 **The split method is more powerful than it first seems from our example. How can you define exactly how a string should be split? Give some examples.**
     With `regular expressions` :sad:
     ```java
-    String richardStallmanQuote = "I'm not glad he is dead, I'm glad he is gone.";
-    // Split on every alpha numeric character.
-    richardStallmanQuote.split("[a-zA-Z0-9]");
-    // On spaces, the character not where rockets go.
-    richardStallmanQuote.split("[/t]");
+    class Test{
+        public String someString = "Hello-world this Is Some 123 message! what ever the *A** that means...";
+        
+        public void terminalSpam(){
+            java.util.Arrays.stream( someString.split( "!" ) ).forEach( System.out::println );
+            // expected output:
+            // Hello-world this Is Some 123 message
+            // what ever the *A** that means...
+            
+            java.util.Arrays.stream( someString.split( "\\S+" ) ).forEach( System.out::println );
+            // expected output:
+            // Hello-world
+            // this 
+            // Is 
+            // Some 
+            // 123 
+            // message
+            // what 
+            // ever 
+            // the 
+            // *A** 
+            // that 
+            // means...
+        }
+    }
     ``` 
     
- - 5.36 **How would you call the split method if you wanted to split a string at either space or tab characters? How might you break up a string in which the words are separated by colon characters (:)?**
-  ```java
-     String richardStallmanQuote = "I'm not glad he is dead, I'm glad he is gone.";
-     // Split on sapce and tab.
-     richardStallmanQuote.split("[/t]+");
-     // On spaces, the character not where rockets go.
-     richardStallmanQuote.split("[:]");
-   ``` 
+ - 5.36 **How would you call the split method if you wanted to split a string at either space or tab characters? 
+        How might you break up a string in which the words are separated by colon characters (:)?**
+```java
+class Test{
+    public String someString = "Hello beer beer     beer!";
+    
+    public void terminalSpam(){
+        java.util.Arrays.stream( someString.split( "\\s+" ) ).forEach( System.out::println );
+        // expected output:
+        // Hello 
+        // beer 
+        // beer 
+        // beer!
+        
+        someString = "Why:not:replace:spaces:With:";
+        java.util.Arrays.stream( someString.split( ":" ) ).forEach( System.out::println );
+        // expected output: 
+        // Why 
+        // not 
+        // replace 
+        // spaces 
+        // With
+    }
+}
+``` 
  - 5.37 **What is the difference in the result of returning the words in a HashSet compared with returning them in an ArrayList ?**
-   - In the hash set you gan receive values by the hash (user defined key) and with an array list you receive them by index.
+   - In the hash set you can receive values by the hash (user defined key) and with an array list you receive them by 
+   the integer index that is generated at creation.
    
  - 5.38 **What happens if there is more than one space between two words (e.g., two or three spaces)? Is there a problem?**
-  - You get an empty string in the set.
+  - Nope not a problem if you use the `+` character after the regular expression.
   
  - 5.42 **Implement the final changes discussed above in your own version of the program**
-   - Done 
+   - Done, see [the Responder class](main/Responder.java) for the implementation.
  
  - 5.41 **Add more word/response mappings into your application. You could copy some out of the solutions provided and add some yourself.**
-   -  Done
+   - Done, see [the Responder class](main/Responder.java) for the implementation.
  
  - 5.42 **Ensure that the same default response is never repeated twice in a row.**
-   - Done
+   - Done, see [the Responder class](main/Responder.java) for the implementation.
  
  - 5.43 **Sometimes two words (or variations of a word) are mapped to the same response. Deal with this by mapping synonyms or related expressions to the same string so that you do not need multiple entries in the response map for the same response.**
-   - Done
+   - Done, see [the Responder class](main/Responder.java) for the implementation.
  
  - 5.46 **Use BlueJ’s Project Documentation function to generate documentation for your TechSupport project. Examine it. Is it accurate? Is it complete? Which parts are useful? Which are not? Do you find any errors in the documentation?**
-   - Done 
+   - Done, see [the Responder class](main/Responder.java) for the implementation. 
  
  - 5.47 **Find examples of javadoc key symbols in the source code of the TechSupport project. How do they influence the formatting of the documentation?**
-   - They have a different color ith itelij IDEA
+   - They have a different color ith inteliij IDEA
  
  - 5.48 **Find out about and describe other javadoc key symbols. One place where you can look is the online documentation of Oracle’s Java distribution. It contains a document called javadoc – The Java API Documentation Generator (for example, at http:// download.oracle.com/javase/6/docs/technotes/tools/windows/javadoc. html). In this document, the key symbols are called javadoc tags .**
    - `@param` Defines an argument of an method. Or aan class attribute.
@@ -255,7 +357,7 @@ Assignments for this week:
    - `@throws` Defines the exceptions an method can throw.
    
  - 5.49 **Properly document all classes in your version of the TechSupport project**
-   - Done
+   - Done, see [the Responder class](main/Responder.java) and [the InputReader class](main/InputReader.java) and [the SupportSystem class](main/SupportSystem.java). 
  
  - 5.50 **Create a DrawDemo object and experiment with its various methods. Read the DrawDemo source code 
         and describe (in writing) how each method works.**
@@ -265,27 +367,45 @@ Assignments for this week:
         Experiment with its methods. While you do this, make sure to have a window open showing you the documentation 
         of the Pen class (either the editor window in Documentation view or a web-browser window showing the project documentation). 
         Refer to the documentation to be certain what each method does.**
-     - 
-   - 
- - 5.52 **Interactively create an instance of class Canvas and try some of its meth- ods. Again, refer to the class’s 
-        documentation while you do this.**
-      - 
+     - The constructor `public DrawDemo()` initiates the class.
+     - The method `drawSquare()` moves the blue pen to the canvas and calls the square method. 
+     - The method `square( Pen pen )` takes the pen and moves it a 100 pixels 4 times making a 90 degree turn after every 
+       move. resulting in an square shape on the canvas
+     - The method ` drawWheel()`  moves the red pen to the canvas and repeatedly calls the square method, while turning
+        10 degrees after every square.
+     - The method `colorScribble()` draws random stripes on the canvas in different shades of red, green an blue.
+     - The method `clear()` doest like art and feels like erasing it from human history.
+     
+ - 5.52 **Interactively create an instance of class Canvas and try some of its meth- ods. Again, refer to the 
+        class’s documentation while you do this.**
+      - Done see [CanvasDemo](Test/Scribble/CanvasDemo.java)
  
  - 5.53 **Find some uses of the color constants in the code of class DrawDemo .**
-      - 
+      - It sets the color of the `Graphics2D.drawLine()` method called. 
  
  - 5.54 **Write down four more color constants that are available in the Color class. Refer to the class’s 
         documentation to find out what they are.**
+      - `java.awt.Color.lightGray`
+      - `java.awt.Color.darkGray`
+      - `java.awt.Color.pink`
+      - `java.awt.Color.orange`
+      - `java.awt.Color.green`
+      - `java.awt.Color.magenta`
+      - `java.awt.Color.cyan`
  
  - 5.55 **Create a canvas. Using the canvas’s methods interactively, draw a red circle near the center of the 
         canvas. Now draw a yellow rectangle.**
+      - Done see [Test.Scribe.CanvasDemo.assignment55](Test/Scribble/CanvasDemo.java)
  
  - 5.56 **How do you clear the whole canvas?**
+    - By calling the `Canvas.clear()` method.
  
  - 5.57 **In class DrawDemo , create a new method named drawTriangle . This method should create a pen 
         (as in the drawSquare method) and then draw a green triangle.**
- 
+    - Done see [Test.Scribe.CanvasDemo.draw](Test/Scribble/CanvasDemo.java)
+    
  - 5.58 **Write a method drawPentagon that draws a pentagon.**
+    - Done see [Scribe.CanvasDemo.heilSatan()](Scribble/CanvasDemo.java)
  
  - 5.59 **Write a method drawPolygon(int n) that draws a regular polygon with n sides 
         (thus, n=3 draws a triangle, n=4 draws a square, etc.).**

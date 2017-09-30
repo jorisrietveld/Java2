@@ -4,7 +4,6 @@ package main;
  * This class implements a technical support system. It is the top
  * level class in this  project. The support system communicates via
  * text input/output in the text terminal.
- * <p>
  * This class uses an object of class InputReader to read input from
  * the user, and an object of class Responder to generate responses.
  * It contains a loop that repeatedly reads input and generates output
@@ -37,18 +36,19 @@ public class SupportSystem
 
         printWelcome();
 
-        while (!finished)
+        while( !finished )
         {
             // Assignment 5.8, 5.9
             String input = reader.getInput().trim().toLowerCase();
 
-            if ( input.equals("bye") ) // Assignment 8.11
+            if( input.equals( "bye" ) ) // Assignment 8.11
             {
                 finished = true;
-            } else
+            }
+            else
             {
                 String response = responder.generateResponse();
-                System.out.println(response);
+                System.out.println( response );
             }
         }
         printGoodbye();
@@ -59,11 +59,11 @@ public class SupportSystem
      */
     private void printWelcome()
     {
-        System.out.println("Welcome to the DodgySoft Technical Support System.");
+        System.out.println( "Welcome to the DodgySoft Technical Support System." );
         System.out.println();
-        System.out.println("Please tell us about your problem. We will assist you");
-        System.out.println("with any problem you might have. Please type 'bye'");
-        System.out.println("to exit our system.");
+        System.out.println( "Please tell us about your problem. We will assist you" );
+        System.out.println( "with any problem you might have. Please type 'bye'" );
+        System.out.println( "to exit our system." );
     }
 
     /**
@@ -71,6 +71,6 @@ public class SupportSystem
      */
     private void printGoodbye()
     {
-        System.out.println("Nice talking to you. Bye...");
+        System.out.println( "Nice talking to you. Bye..." );
     }
 }

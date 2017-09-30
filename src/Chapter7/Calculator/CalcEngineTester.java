@@ -1,4 +1,4 @@
-package calculator
+package Calculator;
 
 /**
  * Test the CalcEngine class.
