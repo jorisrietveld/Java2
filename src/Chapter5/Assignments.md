@@ -404,14 +404,16 @@ class Test{
         (as in the drawSquare method) and then draw a green triangle.**
     - Done see [Test.Scribe.CanvasDemo.draw](Test/Scribble/CanvasDemo.java)
     
- - 5.58 **Write a method drawPentagon that draws a pentagon.**
-    - Done see [Scribe.CanvasDemo.heilSatan()](Scribble/CanvasDemo.java)
+ - 5.58 **Write a method drawPagram that draws a pentagram to show your support of the beast :smiling_imp:`666`:smiling_imp:.**
+    - Done see [Scribe.CanvasDemo.hailSatan()](Test/Scribble/ArtGeneratorTest.java)
  
  - 5.59 **Write a method drawPolygon(int n) that draws a regular polygon with n sides 
         (thus, n=3 draws a triangle, n=4 draws a square, etc.).**
+       - Done see [ArtGenerator.drawPolygon()](Scribble/ArtGenerator.java)
  
  - 5.60 **Write a method called spiral that draws a spiral (see Figure 5.6).**
- 
+    - Done see [ArtGenerator.drawPolygon()](Scribble/ArtGenerator.java)
+    
  - 5.61 **Add a method to your DrawDemo class that produces a picture on the can- vas directly 
         (without using a pen object). The picture can show anything you like, but should at least include some 
         shapes, different colors, and text. Use code completion in the process of entering your code.**

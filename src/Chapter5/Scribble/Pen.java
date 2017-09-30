@@ -14,8 +14,8 @@ import java.util.Random;
 public class Pen
 {
     // constants for randomSquiggle method
-    private static final int SQIGGLE_SIZE = 40;
-    private static final int SQIGGLE_COUNT = 30;
+    private static final int SQIGGLE_SIZE = 15;
+    private static final int SQIGGLE_COUNT = 100;
 
     private int xPosition;
     private int yPosition;
@@ -141,9 +141,7 @@ public class Pen
         for( int i = 0; i < SQIGGLE_COUNT; i++ )
         {
             move( random.nextInt( SQIGGLE_SIZE ) );
-            turn( 160 + random.nextInt( 40 ) );
+            turn( (i % 2 == 0 ? 180 : 90) +  random.nextInt( 40 )  );
         }
-
     }
-
 }

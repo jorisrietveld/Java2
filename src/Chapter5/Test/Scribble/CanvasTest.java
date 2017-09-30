@@ -1,13 +1,12 @@
 package Test.Scribble;
 
 import Scribble.Canvas;
-import Scribble.DrawDemo;
 import org.junit.Test;
 
 import java.awt.*;
 import java.security.SecureRandom;
 
-public class CanvasDemo
+public class CanvasTest
 {
     private int width = 1980;
     private int height = 730;
@@ -16,7 +15,7 @@ public class CanvasDemo
 
     public static void main( String[] args )
     {
-        CanvasDemo demo = new CanvasDemo();
+        CanvasTest demo = new CanvasTest();
 
         switch( 2 )
         {
@@ -27,7 +26,7 @@ public class CanvasDemo
                 demo.assignment55();
                 break;
             case 2:
-                demo.hailSatan();
+
                 break;
         }
     }
@@ -59,15 +58,5 @@ public class CanvasDemo
         int locationy = (height / 2) - (squareSize / 2);
         art.setForegroundColor( Color.green );
         art.fillRectangle( locationX, locationy, squareSize, squareSize );
-    }
-
-    public void hailSatan()
-    {
-        art.setForegroundColor( Color.green );
-
-        for( int i = 0; i < 5; i++ )
-        {
-
-        }
     }
 }
