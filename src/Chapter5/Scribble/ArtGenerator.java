@@ -33,7 +33,7 @@ public class ArtGenerator
      */
     public enum Polygons
     {
-        TRIANGLE( 3 ), QUADRILATERAL( 4 ), PENTAGON( 5 ), HEXAGON( 6 ), HEPTAGON( 7 ), OCTAGON( 8 ), NONAGON( 9 ), DECAGON( 10 ), CIRCLE(100);
+        TRIANGLE( 3 ), QUADRILATERAL( 4 ), PENTAGON( 5 ), HEXAGON( 6 ), HEPTAGON( 7 ), OCTAGON( 8 ), NONAGON( 9 ), DECAGON( 10 ), CIRCLE(30);
         private int value = 10;
 
         Polygons( int sides )
@@ -125,9 +125,8 @@ public class ArtGenerator
     public void drawWheel( int size, Polygons polygon, Color color, int amount, int degrees )
     {
         setObjectSize( size );
-        setCenterCoordinates( degrees, degrees );
         Pen pen = getPen( color );
-        pen.turnTo( degrees );
+
         for( int i = 0; i < amount; i++ )
         {
             regularPolygon( pen, polygon, sizeY );

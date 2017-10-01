@@ -417,6 +417,7 @@ class Test{
  - 5.61 **Add a method to your DrawDemo class that produces a picture on the can- vas directly 
         (without using a pen object). The picture can show anything you like, but should at least include some 
         shapes, different colors, and text. Use code completion in the process of entering your code.**
+        - Done see [ArtGenerator.drawPolygon()](Scribble/ArtGenerator.java)
  
  - 5.62 **Change the method bounce in class BallDemo to let the user choose how many balls should be bouncing.**
  

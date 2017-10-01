@@ -11,23 +11,32 @@ import java.util.TimerTask;
 public class ArtGeneratorTest extends TimerTask
 {
     private static final int ARE_YOU_CHRISTIAN = 0;
-    private static final int REFRESH_INTERVAL = 80;
+    private static final int REFRESH_INTERVAL = 10;
 
     private ArtGenerator artGenerator = new ArtGenerator();
 
     private int program = 0;
     private int maxProgram = 10;
     private int programCounter = 0;
-    Random random = new Random();
+    private static Random random = new Random();
     Color color = Color.red;
+    ArtGenerator.Polygons polygons = ArtGenerator.Polygons.CIRCLE;
+
+    public static <T extends Enum<?>> T randomEnum( Class<T> clazz )
+    {
+        int x = random.nextInt( clazz.getEnumConstants().length );
+        return clazz.getEnumConstants()[ x ];
+    }
 
     @Override
     public void run()
     {
         program = (ARE_YOU_CHRISTIAN == 1) ? 0x29A : program % maxProgram;
-        if( programCounter % 10000 == 0 )
+        if( programCounter % 100 == 0 )
         {
             programCounter %= 256;
+            polygons = randomEnum( ArtGenerator.Polygons.class );
+
             //artGenerator.clear();
         }
         programCounter++;
@@ -66,7 +75,7 @@ public class ArtGeneratorTest extends TimerTask
                 artGenerator.drawSquare();
                 artGenerator.drawTriangle( 200 );
             case 9:
-                drawSpiral( artGenerator, programCounter);
+                drawSpiral( artGenerator, programCounter );
                 break;
             case 100:
                 //artGenerator.drawWheel(200, 200, ArtGenerator.Polygons.QUADRILATERAL, Color.green);
@@ -79,14 +88,15 @@ public class ArtGeneratorTest extends TimerTask
 
     private void drawSpiral( ArtGenerator artGenerator, int programCounter )
     {
-        int bin = random.nextInt( 1 );
-        this.color = new Color(
-                random.nextInt( (programCounter%254)+1 ),
-                random.nextInt(  bin==1 ? 254 - (programCounter%254) : (programCounter%254)+1 ),
-                random.nextInt( (programCounter%254 )+1)
-        );
+        int numbR = random.nextInt( 3 );
+        int counterInput = (programCounter % 254) + 1;
 
-        artGenerator.drawWheel( programCounter%50, ArtGenerator.Polygons.CIRCLE, this.color, programCounter/5, (programCounter%360)/100 );
+        int valRed = random.nextInt( numbR == 0 ? 255 - counterInput : counterInput );
+        int valGreen = random.nextInt( numbR == 1 ? 255 - counterInput : counterInput );
+        int valBlue = random.nextInt( numbR == 2 ? counterInput : 255 - counterInput );
+
+        this.color = new Color( valRed, valGreen, valBlue );
+        artGenerator.drawWheel( programCounter % 400, polygons, this.color, programCounter, 20 );
     }
 
     public static void main( String[] args )

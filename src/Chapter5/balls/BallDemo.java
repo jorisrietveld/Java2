@@ -20,7 +20,7 @@ public class BallDemo
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
      */
-    public BallDemo ()
+    public BallDemo()
     {
         myCanvas.setName( "Ball Demo" );
         myCanvas.setSize( 500, 500 );
@@ -31,7 +31,7 @@ public class BallDemo
      * Demonstrate some of the drawing operations that are
      * available on a Canvas object.
      */
-    public void drawDemo ()
+    public void drawDemo()
     {
         try
         {
@@ -64,7 +64,7 @@ public class BallDemo
             Rectangle rect = new Rectangle( xPos, 150, 30, 20 );
 
             // move the rectangle across the screen
-            for ( int i = 0; i < 200; i++ )
+            for( int i = 0; i < 200; i++ )
             {
                 myCanvas.getGraphics().setClip( rect );
                 myCanvas.wait( 10 );
@@ -75,7 +75,7 @@ public class BallDemo
             // at the end of the move, draw once more so that it remains visible
             myCanvas.getGraphics().setClip( rect );
         }
-        catch ( InterruptedException ex )
+        catch( InterruptedException ex )
         {
             ex.printStackTrace();
         }
@@ -84,7 +84,7 @@ public class BallDemo
     /**
      * Simulate two bouncing balls
      */
-    public void bounce ()
+    public void bounce()
     {
         try
         {
@@ -103,13 +103,13 @@ public class BallDemo
 
             // make them bounce
             boolean finished = false;
-            while ( !finished )
+            while( !finished )
             {
                 myCanvas.wait( 50 );           // small delay
                 ball.move();
                 ball2.move();
                 // stop once ball has travelled a certain distance on x axis
-                if ( ball.getXPosition() >= 550 && ball2.getXPosition() >= 550 )
+                if( ball.getXPosition() >= 550 && ball2.getXPosition() >= 550 )
                 {
                     finished = true;
                 }
@@ -117,7 +117,7 @@ public class BallDemo
             ball.erase();
             ball2.erase();
         }
-        catch ( InterruptedException ex )
+        catch( InterruptedException ex )
         {
             ex.printStackTrace();
         }
