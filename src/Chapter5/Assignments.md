@@ -417,26 +417,31 @@ class Test{
  - 5.61 **Add a method to your DrawDemo class that produces a picture on the can- vas directly 
         (without using a pen object). The picture can show anything you like, but should at least include some 
         shapes, different colors, and text. Use code completion in the process of entering your code.**
-        - Done see [ArtGenerator.drawPolygon()](Scribble/ArtGenerator.java)
+    - Done see [ArtGenerator.drawPolygon()](Scribble/ArtGenerator.java)
  
  - 5.62 **Change the method bounce in class BallDemo to let the user choose how many balls should be bouncing.**
- 
+    - Done see [BallsDemo](balls/BallDemo.java)
+    
  - 5.63 **Which type of collection ( ArrayList , HashMap , or HashSet ) is most suita- ble for storing 
         the balls for the new bounce method? Discuss in writing, and justify your choice.**
+        - an `ArrayList` will do it. because you want to make sure you get each ball.
   
  - 5.64 **Change the bounce method to place the balls randomly anywhere in the top half of the screen.**
- 
- - 5.65 **Write a new method named boxBounce . This method draws a rectan- gle (the “box”) on screen and one 
+    - Done see [BallsDemo](balls/BallDemo.java)
+     
+ - 5.65 **Write a new method named boxBounce . This method draws a rectangle (the “box”) on screen and one 
         or more balls inside the box. For the balls, do not use BouncingBall , but create a new class 
-        BoxBall that moves around inside the box, bounc- ing off the walls of the box so that the ball 
+        BoxBall that moves around inside the box, bouncing off the walls of the box so that the ball 
         always stays inside. The initial position and speed of the ball should be random. The boxBounce 
         method should have a parameter that specifies how many balls are in the box.**
- 
+    - Done see my modified project [MyGame](MyGame/GameWorld.java)
+    
  - 5.66 **Give the balls in boxBounce random colors**
- 
+    - Done see my modified project [MyGame](MyGame/GameWorld.java)
  - 5.67 **In class BouncingBall , you will find a definition of gravity (a simple inte- ger). Increase 
         or decrease the gravity value; compile and run the bouncing ball demo again. Do you observe a change**
- 
+   - Done see my modified project [MyGame](MyGame/GameWorld.java)
+   
  - 5.68 **Write constant declarations for the following:** 
    - **A public variable that is used to measure tolerance, with the value 0.001.**
    - **A private variable that is used to indicate a pass mark, with the integer value of 40.**
@@ -444,11 +449,13 @@ class Test{
  
  - 5.69 **Take a look at the LogEntry class in the weblog-analyzer project from Chapter 4. How have 
         constants been used in that class? Do you think that this is a good use of constants?**
+        - Nope
  
  - 5.70 **Suppose that a change to the weblog-analyzer project meant that it was no longer necessary 
         to store year values in the dataValues array in the LogEntry class. How much of the class would 
         need to be altered if the month value were now to be stored at index 0 , the day value at index 1 , 
         and so on? Do you see how the use of named constants for spe- cial values simplifies this sort of process?**
+        - A lot you have to go though the whole class to alter stuff.
  
  - 5.72 **There is a rumor circulating on the Internet that George Lucas (the creator of the Star Wars movies) 
         uses a formula to create the names for the characters in his stories (Jar Jar Binks, ObiWan Kenobi, etc.). 
@@ -459,6 +466,17 @@ class Test{
         In it create a class named NameGenerator . This class should have a method named generateStarWarsName 
         that generates a Star Wars name, following the method described above. You will need to find out about a 
         method of the String class that generates a substring.**
+```java
+package StarWars;
+
+class NameGenerator
+{
+    public static generateStarWarsName( String fistName, String lastname, String mothersMaidenName, String town )
+    {
+        lastname.substring( -3 );
+    }
+}
+```
  
  - 5.73 **Assume that we want to swap the values of two integer variables, a and b. To do this, we write a 
         method public void swap(int i1, int i2) { int tmp = i1; i1 = i2; i2 = tmp; } Then we call this method 

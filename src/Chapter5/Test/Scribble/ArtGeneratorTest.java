@@ -32,12 +32,12 @@ public class ArtGeneratorTest extends TimerTask
     public void run()
     {
         program = (ARE_YOU_CHRISTIAN == 1) ? 0x29A : program % maxProgram;
-        if( programCounter % 100 == 0 )
+        if( programCounter % 10 == 0 )
         {
             programCounter %= 256;
             polygons = randomEnum( ArtGenerator.Polygons.class );
 
-            //artGenerator.clear();
+            artGenerator.clear();
         }
         programCounter++;
 

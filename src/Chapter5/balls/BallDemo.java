@@ -1,30 +1,58 @@
 package balls;
 
 import java.awt.*;
-import java.awt.Canvas;
 import java.awt.geom.*;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 /**
- * Class BallDemo - provides two short demonstrations showing how to use the
- * Canvas class.
+ * Class BallDemo - provides two short demonstrations showing how to use the Canvas class.
  *
  * @author Michael Kolling and David J. Barnes
- * @author Joris Rietveld
  * @version 2008.03.30
  */
 
 public class BallDemo
 {
-    private java.awt.Canvas myCanvas;
+    private Canvas myCanvas;
+    private int canvasWidth;
+    private int canvasHeight;
+    private SecureRandom random;
+    private int ground;   // position of the ground line
+    private int sceneWidth;
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
      */
     public BallDemo()
     {
-        myCanvas.setName( "Ball Demo" );
-        myCanvas.setSize( 500, 500 );
+        this.random = new SecureRandom();
+        setCanvasSize();
+        myCanvas = new Canvas( "Ball Demo", this.canvasWidth, canvasHeight, Color.black );
         myCanvas.setVisible( true );
+    }
+
+    /**
+     * Sets canvas size.
+     */
+    private void setCanvasSize()
+    {
+        GraphicsDevice screen = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        this.canvasWidth = screen.getDisplayMode().getWidth();
+        this.canvasHeight = screen.getDisplayMode().getHeight();
+        this.ground = this.canvasHeight - 100;
+        this.sceneWidth = this.canvasWidth - 40;
+    }
+
+    public int getRandomInt( int minInclusive, int maxInclusive )
+    {
+        return random.nextInt( maxInclusive - minInclusive ) + minInclusive;
+    }
+
+    private Color getRandomColor()
+    {
+        return new Color( getRandomInt( 100, 255 ), getRandomInt( 100, 255 ), getRandomInt( 100, 255 ) );
     }
 
     /**
@@ -33,93 +61,104 @@ public class BallDemo
      */
     public void drawDemo()
     {
-        try
+        myCanvas.setFont( new Font( "helvetica", Font.BOLD, 14 ) );
+        myCanvas.setForegroundColor( Color.red );
+
+        myCanvas.drawString( "We can draw text, ...", 20, 30 );
+        myCanvas.wait( 1000 );
+
+        myCanvas.setForegroundColor( Color.black );
+        myCanvas.drawString( "...draw lines...", 60, 60 );
+        myCanvas.wait( 500 );
+        myCanvas.setForegroundColor( Color.gray );
+        myCanvas.drawLine( 200, 20, 300, 50 );
+        myCanvas.wait( 500 );
+        myCanvas.setForegroundColor( Color.blue );
+        myCanvas.drawLine( 220, 100, 370, 40 );
+        myCanvas.wait( 500 );
+        myCanvas.setForegroundColor( Color.green );
+        myCanvas.drawLine( 290, 10, 320, 120 );
+        myCanvas.wait( 1000 );
+
+        myCanvas.setForegroundColor( Color.gray );
+        myCanvas.drawString( "...and shapes!", 110, 90 );
+
+        myCanvas.setForegroundColor( Color.red );
+
+        // the shape to draw and move
+        int xPos = 10;
+        Rectangle rect = new Rectangle( xPos, 150, 30, 20 );
+
+        // move the rectangle across the screen
+        for( int i = 0; i < 200; i++ )
         {
-            myCanvas.setFont( new Font( "helvetica", Font.BOLD, 14 ) );
-            myCanvas.setForeground( Color.red );
-
-            myCanvas.getGraphics().drawString( "We can draw text, ...", 20, 30 );
-            myCanvas.wait( 1000 );
-
-            myCanvas.setForeground( Color.black );
-            myCanvas.getGraphics().drawString( "...draw lines...", 60, 60 );
-            myCanvas.wait( 500 );
-            myCanvas.setForeground( Color.gray );
-            myCanvas.getGraphics().drawLine( 200, 20, 300, 50 );
-            myCanvas.wait( 500 );
-            myCanvas.setForeground( Color.blue );
-            myCanvas.getGraphics().drawLine( 220, 100, 370, 40 );
-            myCanvas.wait( 500 );
-            myCanvas.setForeground( Color.green );
-            myCanvas.getGraphics().drawLine( 290, 10, 320, 120 );
-            myCanvas.wait( 1000 );
-
-            myCanvas.setForeground( Color.gray );
-            myCanvas.getGraphics().drawString( "...and shapes!", 110, 90 );
-
-            myCanvas.setForeground( Color.red );
-
-            // the shape to draw and move
-            int xPos = 10;
-            Rectangle rect = new Rectangle( xPos, 150, 30, 20 );
-
-            // move the rectangle across the screen
-            for( int i = 0; i < 200; i++ )
-            {
-                myCanvas.getGraphics().setClip( rect );
-                myCanvas.wait( 10 );
-                //myCanvas.erase( rect );
-                xPos++;
-                rect.setLocation( xPos, 150 );
-            }
-            // at the end of the move, draw once more so that it remains visible
-            myCanvas.getGraphics().setClip( rect );
+            myCanvas.fill( rect );
+            myCanvas.wait( 10 );
+            myCanvas.erase( rect );
+            xPos++;
+            rect.setLocation( xPos, 150 );
         }
-        catch( InterruptedException ex )
-        {
-            ex.printStackTrace();
-        }
+        // at the end of the move, draw once more so that it remains visible
+        myCanvas.fill( rect );
+    }
+
+    private BouncingBall getRandomBall()
+    {
+        return new BouncingBall(
+                1 + getRandomInt( 50, 200 ),
+                1 + getRandomInt( 50, 200 ),
+                1 + getRandomInt( 10, 200 ),
+                getRandomColor(),
+                this.ground,
+                myCanvas
+        );
     }
 
     /**
      * Simulate two bouncing balls
      */
-    public void bounce()
+    public void bounce( int amountOfBalls )
     {
-        try
+        myCanvas.setVisible( true );
+        ArrayList<BouncingBall> balls = new ArrayList<>(amountOfBalls);
+
+        // draw the ground
+        myCanvas.drawLine( 20, this.ground, sceneWidth, this.ground );
+
+        IntStream.range(0, amountOfBalls ).forEach( i -> {
+            balls.add( getRandomBall() );
+            balls.get( i ).draw();
+        });
+
+        // make them bounce
+        boolean finished = false;
+        while( !finished )
         {
-            int ground = 400;   // position of the ground line
+            myCanvas.wait( 50 );           // small delay
+            int finishedBalles = 0;
 
-            myCanvas.setVisible( true );
-
-            // draw the ground
-            myCanvas.getGraphics().drawLine( 50, ground, 550, ground );
-
-            // crate and show the balls
-            BouncingBall ball = new BouncingBall( 50, 50, 16, Color.blue, ground, myCanvas );
-            ball.draw();
-            BouncingBall ball2 = new BouncingBall( 70, 80, 20, Color.red, ground, myCanvas );
-            ball2.draw();
-
-            // make them bounce
-            boolean finished = false;
-            while( !finished )
+            for( int i = 0; i < balls.size(); i++ )
             {
-                myCanvas.wait( 50 );           // small delay
-                ball.move();
-                ball2.move();
-                // stop once ball has travelled a certain distance on x axis
-                if( ball.getXPosition() >= 550 && ball2.getXPosition() >= 550 )
+                balls.get( i ).move();
+                if( balls.get( i ).getXPosition() >= sceneWidth )
                 {
-                    finished = true;
+                    finishedBalles++;
                 }
             }
-            ball.erase();
-            ball2.erase();
+            if( balls.size() == finishedBalles )
+            {
+                finished = true;
+            }
         }
-        catch( InterruptedException ex )
+
+        for( int i = 0; i < balls.size(); i++ )
         {
-            ex.printStackTrace();
+            balls.get( 1 ).erase();
         }
+    }
+
+    public void boxBounce( int amountOfBalls )
+    {
+
     }
 }
