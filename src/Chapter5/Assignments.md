@@ -444,9 +444,17 @@ class Test{
    
  - 5.68 **Write constant declarations for the following:** 
    - **A public variable that is used to measure tolerance, with the value 0.001.**
+     ```java 
+     public static final float TOLERANCE = 0.001f
+     ```
    - **A private variable that is used to indicate a pass mark, with the integer value of 40.**
+    ```java 
+    public static final int PASS_MARK = 40
+    ```
    - **A public character variable that is used to indicate that the help command is 'h' .**
- 
+     ```java 
+     public static final String COMMAND_HELP = "h"  
+     ```
  - 5.69 **Take a look at the LogEntry class in the weblog-analyzer project from Chapter 4. How have 
         constants been used in that class? Do you think that this is a good use of constants?**
         - Nope
@@ -466,19 +474,10 @@ class Test{
         In it create a class named NameGenerator . This class should have a method named generateStarWarsName 
         that generates a Star Wars name, following the method described above. You will need to find out about a 
         method of the String class that generates a substring.**
-```java
-package StarWars;
-
-class NameGenerator
-{
-    public static generateStarWarsName( String fistName, String lastname, String mothersMaidenName, String town )
-    {
-        lastname.substring( -3 );
-    }
-}
-```
+        - Done see [The NameGenerator class](Starwars/NameGenerator.java) for the solution.
  
  - 5.73 **Assume that we want to swap the values of two integer variables, a and b. To do this, we write a 
         method public void swap(int i1, int i2) { int tmp = i1; i1 = i2; i2 = tmp; } Then we call this method 
         with our a and b variables: swap(a, b); Are a and b swapped after this call? If you test it, you will 
         notice that they are not! Why does this not work? Explain in detail.**
+       - Because you are swapping an copy and not the the original values. 

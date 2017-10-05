@@ -1,14 +1,16 @@
 package OnlineShopJunit;
 
 import static org.junit.Assert.*;
+
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * The test class SalesItemTest.
  *
- * @author  mik
+ * @author mik
  * @version 0.1
  */
 public class SalesItemTest
@@ -22,7 +24,6 @@ public class SalesItemTest
 
     /**
      * Sets up the test fixture.
-     *
      * Called before every test case method.
      */
     @Before
@@ -32,7 +33,6 @@ public class SalesItemTest
 
     /**
      * Tears down the test fixture.
-     *
      * Called after every test case method.
      */
     @After
@@ -46,9 +46,9 @@ public class SalesItemTest
     @Test
     public void testAddComment()
     {
-        SalesItem salesIte1 = new SalesItem("Java for complete Idiots", 21998);
-        assertEquals(true, salesIte1.addComment("James Duckling", "This book is great. I learned all my Java from it.", 4));
-        assertEquals(1, salesIte1.getNumberOfComments());
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        assertEquals( true, salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 4 ) );
+        assertEquals( 1, salesIte1.getNumberOfComments() );
     }
 
     /**
@@ -57,8 +57,8 @@ public class SalesItemTest
     @Test
     public void testIllegalRating()
     {
-        SalesItem salesIte1 = new SalesItem("Java For Complete Idiots, Vol 2", 19900);
-        assertEquals(false, salesIte1.addComment("Joshua Black", "Not worth the money. The font is too small.", -5));
+        SalesItem salesIte1 = new SalesItem( "Java For Complete Idiots, Vol 2", 19900 );
+        assertEquals( false, salesIte1.addComment( "Joshua Black", "Not worth the money. The font is too small.", -5 ) );
     }
 
     /**
@@ -67,10 +67,62 @@ public class SalesItemTest
     @Test
     public void testInit()
     {
-        SalesItem salesIte1 = new SalesItem("test name", 1000);
-        assertEquals("test name", salesIte1.getName());
-        assertEquals(1000, salesIte1.getPrice());
+        SalesItem salesIte1 = new SalesItem( "test name", 1000 );
+        assertEquals( "test name", salesIte1.getName() );
+        assertEquals( 1000, salesIte1.getPrice() );
     }
+
+    /**
+     * Test that a sales item is correctly initialised (name and price).
+     */
+    @Test
+    public void testShowInfo()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 4 );
+        salesIte1.showInfo();
+    }
+
+    /**
+     * Test that a sales item is correctly initialised (name and price).
+     */
+    @Test
+    public void testNumberOfComments()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 4 );
+        assertEquals( 1, salesIte1.getNumberOfComments() );
+    }
+
+    @Test
+    public void testRejectSameAuthor()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 4 );
+        assertEquals( false, salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 4 ) );
+    }
+
+    @Test
+    public void testBoundry()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        assertEquals( false, salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 10 ));
+        assertEquals( false, salesIte1.addComment( "Bob Duckling", "This book is great. I learned all my Java from it.", -1 ));
+    }
+
+    @Test
+    public void testBoundry()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 10 );
+        salesIte1.addComment( "Bob Duckling", "This book is great. I learned all my Java from it.", -1 );
+
+        salesIte1.upvoteComment( 1 );
+
+
+    }
+
+
 }
 
 
