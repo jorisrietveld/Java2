@@ -1,14 +1,12 @@
-package NetworkSecond;
-
-import java.util.ArrayList;
+package Network;
 
 /**
- * This class stores information about a post in a social network news feed.
- * The main part of the post consists of a photo and a caption.
+ * This class stores information about a post in a social network. 
+ * The main part of the post consists of a photo and a caption. 
  * Other data, such as author and time, are also stored.
  * 
  * @author Michael Kölling and David J. Barnes
- * @version 0.2
+ * @version 0.1
  */
 public class PhotoPost extends Post
 {
@@ -24,7 +22,7 @@ public class PhotoPost extends Post
      */
     public PhotoPost(String author, String filename, String caption)
     {
-        super(author);
+        super( author );
         this.filename = filename;
         this.caption = caption;
     }
@@ -47,5 +45,28 @@ public class PhotoPost extends Post
     public String getCaption()
     {
         return caption;
+    }
+
+    /**
+     * Display the details of this post.
+     * 
+     * (Currently: Print to the text terminal. This is simulating display 
+     * in a web browser for now.)
+     */
+    @Override
+    public void display()
+    {
+        printTitle( "Photo: \t" + caption );
+        System.out.println("  [" + filename + "]");
+        printTrentData();
+    }
+
+    /**
+     * Prints an short summary of an post message.
+     */
+    @Override
+    public void printShortSummary()
+    {
+        System.out.println( String.format( "Photo post from %s", getUsername() ) );
     }
 }

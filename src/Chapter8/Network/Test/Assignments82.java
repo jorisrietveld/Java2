@@ -1,17 +1,17 @@
-package NetworkFirst.Test;
+package Network.Test;
 
-import NetworkFirst.MessagePost;
-import NetworkFirst.NewsFeed;
-import NetworkFirst.PhotoPost;
+import Network.MessagePost;
+import Network.NewsFeed;
+import Network.PhotoPost;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class Assignments82
 {
-    NewsFeed newsFeed = new NewsFeed();
+    private NewsFeed newsFeed = new NewsFeed();
 
-    public void initMessages()
+    private void initMessages()
     {
         ArrayList<MessagePost> messages = new ArrayList<MessagePost>()
         {{
@@ -23,7 +23,7 @@ public class Assignments82
         messages.forEach( messagePost -> newsFeed.addMessagePost( messagePost ) );
     }
 
-    public void initPhotos()
+    private void initPhotos()
     {
         ArrayList<PhotoPost> photos = new ArrayList<PhotoPost>()
         {{

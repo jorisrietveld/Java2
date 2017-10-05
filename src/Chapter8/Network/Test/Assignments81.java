@@ -1,8 +1,8 @@
-package NetworkFirst.Test;
+package Network.Test;
 
-import NetworkFirst.MessagePost;
-import NetworkFirst.NewsFeed;
-import NetworkFirst.PhotoPost;
+import Network.MessagePost;
+import Network.NewsFeed;
+import Network.PhotoPost;
 
 import java.util.ArrayList;
 

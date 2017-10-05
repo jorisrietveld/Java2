@@ -1,9 +1,6 @@
-package NetworkFirst;
-
-import com.sun.javaws.exceptions.InvalidArgumentException;
+package Network;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The NewsFeed class stores news posts for the news feed in a
@@ -24,14 +21,7 @@ public class NewsFeed
     /**
      * The enum Post type.
      */
-    public enum  PostType{
-        /**
-         * Message post type.
-         */
-        MESSAGE, /**
-         * Photo post type.
-         */
-        PHOTO };
+    public enum  PostType{ MESSAGE, PHOTO }
 
     /**
      * Construct an empty news feed.
@@ -69,19 +59,8 @@ public class NewsFeed
      */
     public void show()
     {
-        // display all text posts
-        for( MessagePost message : messages )
-        {
-            message.display();
-            System.out.println();   // empty line between posts
-        }
-
-        // display all photos
-        for( PhotoPost photo : photos )
-        {
-            photo.display();
-            System.out.println();   // empty line between posts
-        }
+        messages.forEach( MessagePost::display );
+        photos.forEach( PhotoPost::display );
     }
 
     /**
@@ -89,7 +68,7 @@ public class NewsFeed
      * @param type The type of posts, like messages or photo's
      * @return ArrayList<Post> An collection of posts stored on the news feed.
      */
-    private ArrayList<? extends Post> getList( PostType type )
+    private ArrayList<? extends Post> getPostList( PostType type )
     {
         switch( type )
         {
@@ -111,7 +90,7 @@ public class NewsFeed
      */
     public void addComment( PostType type, int index, String comment )
     {
-        getList( type ).get( index ).addComment( comment );
+        getPostList( type ).get( index ).addComment( comment );
     }
 
     /**
@@ -122,7 +101,7 @@ public class NewsFeed
      */
     public void addLike( PostType type, int index )
     {
-        getList( type ).get( index ).like();
+        getPostList( type ).get( index ).like();
     }
 
     /**
@@ -133,17 +112,6 @@ public class NewsFeed
      */
     public void addDislike( PostType type, int index )
     {
-        getList( type ).get( index ).unlike();
-    }
-
-    /**
-     * Gets time stamp.
-     *
-     * @param type  the type
-     * @param index the index
-     */
-    public void getTimeStamp(PostType type, int index)
-    {
-        getList( type ).get( index ).getTimeStamp();
+        getPostList( type ).get( index ).unlike();
     }
 }
