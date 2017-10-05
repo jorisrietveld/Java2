@@ -91,7 +91,7 @@ public class SalesItem
      */
     public void upvoteComment(int index)
     {
-        if(index >=0 && index < comments.size()) { // if index is valid
+        if(index >= 0 && index < comments.size()) { // if index is valid
             comments.get(index).upvote();
         }
     }
@@ -132,6 +132,10 @@ public class SalesItem
      */
     public Comment findMostHelpfulComment()
     {
+        if( comments.isEmpty() )
+        {
+            return null;
+        }
         Iterator<Comment> it = comments.iterator();
         Comment best = it.next();
         while(it.hasNext()) {
@@ -149,7 +153,7 @@ public class SalesItem
      */
     private boolean ratingInvalid(int rating)
     {
-        return rating <= 0 || rating >= 5;
+        return rating <= 0 || rating > 5;
     }
     
     /**

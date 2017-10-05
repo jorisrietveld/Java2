@@ -103,7 +103,7 @@ public class SalesItemTest
     }
 
     @Test
-    public void testBoundry()
+    public void testBoundary()
     {
         SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
         assertEquals( false, salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 10 ));
@@ -111,15 +111,66 @@ public class SalesItemTest
     }
 
     @Test
-    public void testBoundry()
+    public void testUpVote()
     {
         SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
-        salesIte1.addComment( "James Duckling", "This book is great. I learned all my Java from it.", 10 );
-        salesIte1.addComment( "Bob Duckling", "This book is great. I learned all my Java from it.", -1 );
+        salesIte1.addComment( "James", "This book is great. I learned all my Java from it.", 5 );
+        salesIte1.addComment( "Bob", "This book is great. I learned all my Java from it.", 2 );
+        salesIte1.addComment( "Alice", "This book is great. I learned all my Java from it.", 4 );
+        salesIte1.upvoteComment( 0 );
+        salesIte1.upvoteComment( 0 );
+        assertEquals( "James", salesIte1.findMostHelpfulComment().getAuthor() );
+    }
 
+    @Test
+    public void testDownVote()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        salesIte1.addComment( "James", "This book is great. I learned all my Java from it.", 5 );
+        salesIte1.addComment( "Bob", "This book is great. I learned all my Java from it.", 2 );
+        salesIte1.addComment( "Alice", "This book is great. I learned all my Java from it.", 4 );
+        salesIte1.upvoteComment( 0 );
         salesIte1.upvoteComment( 1 );
+        salesIte1.upvoteComment( 2 );
+        salesIte1.downvoteComment( 0 );
+        salesIte1.downvoteComment( 1 );
+        assertEquals( "Alice", salesIte1.findMostHelpfulComment().getAuthor() );
+    }
 
+    @Test
+    public void testMostUsefullComment()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        assertNull( salesIte1.findMostHelpfulComment() );
+    }
 
+    @Test
+    public void testAssignment715()
+    {
+        SalesItem item = new SalesItem( "box", 10 );
+        assertEquals( false, item.addComment( "bob", "text", 0 ) );
+        assertEquals( false, item.addComment( "alice", "text", 6 ) );
+    }
+
+    @Test
+    public void testAssignment716()
+    {
+        SalesItem item = new SalesItem( "box", 10 );
+        item.addComment( "bob", "text", 1 );
+        assertEquals( false, item.addComment( "bob", "text", 1 ) );
+    }
+
+    @Test
+    public void testAssignment719()
+    {
+        SalesItem salesIte1 = new SalesItem( "Java for complete Idiots", 21998 );
+        salesIte1.addComment( "bob", "This book is great. I learned all my Java from it.", 5 );
+        salesIte1.addComment( "alice", "This book is great. I learned all my Java from it.", 2 );
+
+        salesIte1.upvoteComment( 0 );
+        salesIte1.upvoteComment( 0 );
+
+        assertEquals( "bob", salesIte1.findMostHelpfulComment().getAuthor() );
     }
 
 
